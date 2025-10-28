@@ -1,6 +1,6 @@
 import logo from "../../assets/logo.jpg";
 import { Link } from "react-router-dom";
-import "./footer.css"
+import "./footer.css";
 
 const Footer = () => {
   return (
@@ -27,7 +27,6 @@ const Footer = () => {
             <p className="mb-0 small">2418 0111</p>
           </div>
 
-      
           <div className="col-lg-2 col-md-2 mb-3 mb-md-0">
             <h6 className="fw-semibold mb-2 border-bottom border-secondary pb-1 small">
               iPhones
@@ -38,7 +37,7 @@ const Footer = () => {
                   to="/category/iphones-sellados"
                   className="text-white text-decoration-none small d-block py-1 hover-effect"
                 >
-                   Sellados
+                  Sellados
                 </Link>
               </li>
               <li className="mb-1">
@@ -46,13 +45,12 @@ const Footer = () => {
                   to="/category/iphones-seminuevos"
                   className="text-white text-decoration-none small d-block py-1 hover-effect"
                 >
-                   Seminuevos
+                  Seminuevos
                 </Link>
               </li>
             </ul>
           </div>
 
-          
           <div className="col-lg-2 col-md-2 mb-3 mb-md-0">
             <h6 className="fw-semibold mb-2 border-bottom border-secondary pb-1 small">
               Enlaces
@@ -63,7 +61,7 @@ const Footer = () => {
                   to="/"
                   className="text-white text-decoration-none small d-block py-1 hover-effect"
                 >
-                   Inicio
+                  Inicio
                 </Link>
               </li>
               <li className="mb-1">
@@ -71,7 +69,7 @@ const Footer = () => {
                   to="/sobre-nosotros"
                   className="text-white text-decoration-none small d-block py-1 hover-effect"
                 >
-                   Nosotros
+                  Nosotros
                 </Link>
               </li>
             </ul>
@@ -86,7 +84,6 @@ const Footer = () => {
               <p className="mb-1">✅ Asesoramiento profesional</p>
               <p className="mb-2">✅ Precios competitivos</p>
             </div>
-
           </div>
         </div>
 
