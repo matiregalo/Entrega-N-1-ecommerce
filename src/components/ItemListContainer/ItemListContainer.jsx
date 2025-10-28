@@ -9,10 +9,6 @@ const ItemListContainer = ({}) => {
     getProducts().then((data) => {
       setProducts(data);
     });
-
-    getProductById(1).then((data) => {
-      console.log(data);
-    });
   }, []);
 
   console.log(products);
