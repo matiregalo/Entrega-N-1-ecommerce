@@ -10,7 +10,7 @@ const ItemDetailContainer = () => {
     });
   }, []);
 
-  console.log(product);
+
 
   return <div></div>;
 };

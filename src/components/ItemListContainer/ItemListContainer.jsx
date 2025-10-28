@@ -11,7 +11,7 @@ const ItemListContainer = ({}) => {
     });
   }, []);
 
-  console.log(products);
+
   return (
     <div>
       <ItemList products={products} />
