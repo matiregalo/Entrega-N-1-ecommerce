@@ -5,6 +5,8 @@
   list-style: none;
   margin: 20px 40px;
   font-size: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .img-item-container {
   width: 100%;
@@ -12,18 +14,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(
-    circle,
-    rgba(67, 67, 67, 0.6) 20%,
-    rgba(255, 255, 255, 0) 100%
-  );
 }
 .img-item {
   width: 80%;
+  height: 80%; /* Añade altura fija */
+  object-fit: contain; 
 }
 .text-item {
   height: 40%;
-  background-color: rgb(31, 31, 31);
   padding: 20px 15px;
 }
 .title-item {
@@ -37,5 +35,5 @@
   margin: 20px 0;
   font-size: 15px;
   font-weight: 600;
-  color: rgb(171, 20, 20);
+  color: rgb(0, 0, 0);
 }

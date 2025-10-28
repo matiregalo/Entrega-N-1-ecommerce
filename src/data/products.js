@@ -5,7 +5,7 @@ const products = [
     description:
       "Pantalla Super Retina XDR de 6.9”, chip A18 Pro, cámara triple de 48 MP, 1 TB de almacenamiento.",
     stock: 15,
-    image: "",
+    image: "/image/iphone-16-pro-max.avif",
     price: 800,
   },
   {
@@ -14,7 +14,7 @@ const products = [
     description:
       "Pantalla OLED de 6.1”, chip A18, cámara dual de 48 MP, batería de larga duración.",
     stock: 20,
-    image: "",
+    image: "/image/iphone-16.avif",
     price: 900,
   },
   {
@@ -23,7 +23,7 @@ const products = [
     description:
       "Diseño en titanio, chip A17 Pro, cámara de 48 MP con zoom óptico 5x, pantalla ProMotion.",
     stock: 18,
-    image: "",
+    image: "/image/iphone-15-pro.avif",
     price: 900,
   },
   {
@@ -32,7 +32,7 @@ const products = [
     description:
       "Pantalla de 6.1”, Dynamic Island, chip A16 Bionic, resistente al agua IP68.",
     stock: 25,
-    image: "",
+    image: "/image/iphone-15.avif",
     price: 900,
   },
   {
@@ -41,7 +41,7 @@ const products = [
     description:
       "Pantalla Always-On, chip A16 Bionic, cámara de 48 MP, 120 Hz de tasa de refresco.",
     stock: 10,
-    image: "",
+    image: "/image/iphone-14-pro-max.avif",
     price: 900,
   },
   {
@@ -50,7 +50,7 @@ const products = [
     description:
       "Chip A15 Bionic, cámara dual de 12 MP, grabación 4K HDR, Face ID.",
     stock: 30,
-    image: "",
+    image: "/image/iphone-14.avif",
     price: 900,
   },
   {
@@ -59,7 +59,7 @@ const products = [
     description:
       "Pantalla OLED de 6.1”, chip A15 Bionic, cámara triple, batería optimizada.",
     stock: 12,
-    image: "",
+    image: "/image/iphone-13-pro.avif",
     price: 900,
   },
   {
@@ -68,7 +68,7 @@ const products = [
     description:
       "Diseño compacto de 5.4”, chip A15 Bionic, cámara dual, 256 GB de almacenamiento.",
     stock: 8,
-    image: "",
+    image: "/image/iphone-13-mini.avif",
     price: 900,
   },
   {
@@ -77,7 +77,7 @@ const products = [
     description:
       "Pantalla Retina HD de 4.7”, chip A15 Bionic, sensor Touch ID, diseño clásico.",
     stock: 22,
-    image: "",
+    image: "/image/iphone-se-3ageneracion.avif",
     price: 900,
   },
   {
@@ -86,7 +86,7 @@ const products = [
     description:
       "Pantalla Super Retina XDR de 6.1”, chip A14 Bionic, conectividad 5G, cámara dual.",
     stock: 17,
-    image: "",
+    image: "/image/iphone-12.avif",
     price: 900,
   },
 ];
