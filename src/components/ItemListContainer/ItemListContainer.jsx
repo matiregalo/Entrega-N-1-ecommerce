@@ -1,5 +1,6 @@
 import getProducts from "../../data/products.js";
 import { useState, useEffect } from "react";
+import ItemList from "../ItemList/ItemList.jsx";
 
 const ItemListContainer = ({}) => {
   const [products, setProducts] = useState([]);
@@ -13,12 +14,7 @@ const ItemListContainer = ({}) => {
   console.log(products);
   return (
     <div>
-      {products.map((product) => (
-        <div key={product.id}>
-          <p>{product.name}</p>
-          <p>Price: {product.price}</p>
-        </div>
-      ))}
+      <ItemList products={products} />
     </div>
   );
 };
