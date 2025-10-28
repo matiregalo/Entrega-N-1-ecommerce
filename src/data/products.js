@@ -7,6 +7,7 @@ const products = [
     stock: 15,
     image: "/image/iphone-16-pro-max.avif",
     price: 800,
+    category: "iphones-sellados",
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const products = [
     stock: 20,
     image: "/image/iphone-16.avif",
     price: 900,
+    category: "iphones-sellados",
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const products = [
     stock: 18,
     image: "/image/iphone-15-pro.avif",
     price: 900,
+    category: "iphones-sellados",
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ const products = [
     stock: 25,
     image: "/image/iphone-15.avif",
     price: 900,
+    category: "iphones-seminuevos",
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ const products = [
     stock: 10,
     image: "/image/iphone-14-pro-max.avif",
     price: 900,
+    category: "iphones-seminuevos",
   },
   {
     id: 6,
@@ -52,6 +57,7 @@ const products = [
     stock: 30,
     image: "/image/iphone-14.avif",
     price: 900,
+    category: "iphones-seminuevos",
   },
   {
     id: 7,
@@ -61,6 +67,7 @@ const products = [
     stock: 12,
     image: "/image/iphone-13-pro.avif",
     price: 900,
+    category: "iphones-seminuevos",
   },
   {
     id: 8,
@@ -70,6 +77,7 @@ const products = [
     stock: 8,
     image: "/image/iphone-13-mini.avif",
     price: 900,
+    category: "iphones-seminuevos",
   },
   {
     id: 9,
@@ -79,6 +87,7 @@ const products = [
     stock: 22,
     image: "/image/iphone-se-3ageneracion.avif",
     price: 900,
+    category: "iphones-seminuevos",
   },
   {
     id: 10,
@@ -88,6 +97,7 @@ const products = [
     stock: 17,
     image: "/image/iphone-12.avif",
     price: 900,
+    category: "iphones-seminuevos",
   },
 ];
 

@@ -1,5 +1,6 @@
 import logo from "../../assets/logo.jpg";
 import CartWidget from "../CartWidget/CartWidget";
+import { Link } from "react-router-dom";
 import "./navbar.css";
 
 const NavBar = () => {
@@ -29,10 +30,9 @@ const NavBar = () => {
           >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item mx-2">
-                <a className="nav-link text-dark" href="#" id="link-celulares">
-                  {" "}
-                  Celulares{" "}
-                </a>
+                <Link className="nav-link text-dark" to="/" id="link-inicio">
+                  Inicio
+                </Link>
               </li>
               <li className="nav-item dropdown mx-2">
                 <a
@@ -42,33 +42,37 @@ const NavBar = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Accesorios
+                  iPhones
                 </a>
                 <ul className="dropdown-menu shadow-sm rounded-3 custom-dropdown ">
                   <li className="mx-2">
-                    <a
+                    <Link
                       className="dropdown-item text-dark "
-                      id="link-fundas"
-                      href="#"
+                      id="link-iphones-sellados"
+                      to="/category/iphones-sellados"
                     >
-                      Fundas
-                    </a>
+                      iPhones Sellados
+                    </Link>
                   </li>
                   <li className="mx-2">
-                    <a
+                    <Link
                       className="dropdown-item text-dark"
-                      id="link-cargadores"
-                      href="#"
+                      id="link-iphones-seminuevos"
+                      to="/category/iphones-seminuevos"
                     >
-                      Cargadores
-                    </a>
+                      iPhones Seminuevos
+                    </Link>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-dark" id="link-contacto" href="#">
-                  Contacto
-                </a>
+                <Link
+                  className="nav-link text-dark"
+                  id="link-sobre-nosotros"
+                  to="/sobre-nosotros"
+                >
+                  Sobre nosotros
+                </Link>
               </li>
             </ul>
             <CartWidget />

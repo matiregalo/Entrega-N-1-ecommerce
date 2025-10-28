@@ -11,7 +11,6 @@ const ItemListContainer = ({}) => {
     });
   }, []);
 
-
   return (
     <div>
       <ItemList products={products} />

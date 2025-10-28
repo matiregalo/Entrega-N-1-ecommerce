@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getProductById } from "../../data/products.js";
+import ItemDetail from "../ItemDetail/ItemDetail.jsx";
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
@@ -10,9 +11,11 @@ const ItemDetailContainer = () => {
     });
   }, []);
 
-
-
-  return <div></div>;
+  return (
+    <div>
+      <ItemDetail product={product} />
+    </div>
+  );
 };
 
 export default ItemDetailContainer;
