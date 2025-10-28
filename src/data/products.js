@@ -99,4 +99,12 @@ const getProducts = () => {
   });
 };
 
-export default getProducts;
+const getProductById = (id) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(products.find((product) => product.id === id));
+    }, 1000);
+  });
+};
+
+export { getProducts, getProductById };
