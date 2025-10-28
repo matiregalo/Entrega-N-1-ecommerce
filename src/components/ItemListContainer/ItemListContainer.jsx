@@ -1,4 +1,4 @@
-import {getProducts, getProductById} from "../../data/products.js";
+import { getProducts, getProductById } from "../../data/products.js";
 import { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList.jsx";
 
