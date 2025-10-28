@@ -17,7 +17,7 @@
 }
 .img-item {
   width: 80%;
-  height: 80%; /* Añade altura fija */
+  height: 80%;
   object-fit: contain;
 }
 .text-item {

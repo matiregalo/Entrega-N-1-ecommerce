@@ -28,7 +28,7 @@ function App() {
             element={<ItemDetailContainer onLoadingChange={setIsLoading} />}
           />
           <Route path="/sobre-nosotros" element={<SobreNosotros />} />
-          <Route path="*" element={<PathNotFound/>}/>
+          <Route path="*" element={<PathNotFound />} />
         </Routes>
         {!isLoading && <Footer />}
       </BrowserRouter>
