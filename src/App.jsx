@@ -2,6 +2,7 @@ import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import SobreNosotros from "./components/SobreNosotros/SobreNosotros";
+import PathNotFound from "./components/PathNotFound/PathNotFound";
 import Footer from "./components/Footer/Footer";
 import { useState } from "react";
 
@@ -27,6 +28,7 @@ function App() {
             element={<ItemDetailContainer onLoadingChange={setIsLoading} />}
           />
           <Route path="/sobre-nosotros" element={<SobreNosotros />} />
+          <Route path="*" element={<PathNotFound/>}/>
         </Routes>
         {!isLoading && <Footer />}
       </BrowserRouter>

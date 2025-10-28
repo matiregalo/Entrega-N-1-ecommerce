@@ -33,11 +33,7 @@ const ItemListContainer = ({ onLoadingChange }) => {
       });
   }, [category, onLoadingChange]);
 
-  return (
-    <div>
-      {loading ? <Loader/> : <ItemList products={products} />}
-    </div>
-  );
+  return <div>{loading ? <Loader /> : <ItemList products={products} />}</div>;
 };
 
 export default ItemListContainer;

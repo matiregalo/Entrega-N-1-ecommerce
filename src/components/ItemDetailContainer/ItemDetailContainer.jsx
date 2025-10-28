@@ -26,11 +26,7 @@ const ItemDetailContainer = ({ onLoadingChange }) => {
       });
   }, [id, onLoadingChange]);
 
-  return (
-    <div>
-      {loading ? <Loader/> : <ItemDetail product={product} />}
-    </div>
-  );
+  return <div>{loading ? <Loader /> : <ItemDetail product={product} />}</div>;
 };
 
 export default ItemDetailContainer;
