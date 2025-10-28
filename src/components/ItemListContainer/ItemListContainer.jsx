@@ -1,38 +1,26 @@
+import getProducts from "../../data/products.js";
 import { useState, useEffect } from "react";
-import ItemDetail from "../ItemDetail/ItemDetail.jsx";
 
-const getItem = () => {
-  // Esta función debe retornar la promesa que resuelve con delay
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        id: 1,
-        title: "Producto Ejemplo",
-        description: "Descripción del producto.",
-        price: 100,
-        imageUrl:
-          "https://f.fcdn.app/imgs/187090/www.zonatecno.com.uy/zoteuy/714d/webp/catalogo/108415_108415_1/800x800/celular-apple-iphone-17-pro-max-1tb-12gb-blue-celular-apple-iphone-17-pro-max-1tb-12gb-blue.jpg",
-      });
-    }, 2000);
-  });
-};
-
-function ItemDetailContainer() {
-  const [item, setItem] = useState(null);
+const ItemListContainer = ({}) => {
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    getItem().then((item) => setItem(item));
+    getProducts().then((data) => {
+      setProducts(data);
+    });
   }, []);
 
+  console.log(products);
   return (
     <div>
-      {item ? (
-        <ItemDetail item={item} />
-      ) : (
-        <p>Cargando detalles del producto...</p>
-      )}
+      {products.map((product) => (
+        <div key={product.id}>
+          <p>{product.name}</p>
+          <p>Price: {product.price}</p>
+        </div>
+      ))}
     </div>
   );
-}
+};
 
-export default ItemDetailContainer;
+export default ItemListContainer;
