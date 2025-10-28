@@ -44,7 +44,7 @@ const NavBar = () => {
                 >
                   iPhones
                 </a>
-                <ul className="dropdown-menu shadow-sm rounded-3 custom-dropdown ">
+                <ul className="dropdown-menu shadow-sm rounded-3 custom-dropdown  ">
                   <li className="mx-2">
                     <Link
                       className="dropdown-item text-dark "

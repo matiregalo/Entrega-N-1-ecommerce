@@ -112,7 +112,7 @@ const getProducts = () => {
 const getProductById = (id) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(products.find((product) => product.id === id));
+      resolve(products.find((product) => product.id === parseInt(id)));
     }, 1000);
   });
 };

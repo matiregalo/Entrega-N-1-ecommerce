@@ -1,19 +1,41 @@
-import { getProducts, getProductById } from "../../data/products.js";
+import { getProducts } from "../../data/products.js";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList.jsx";
+import Loader from "../Loader/Loader.jsx";
 
-const ItemListContainer = ({}) => {
+const ItemListContainer = ({ onLoadingChange }) => {
   const [products, setProducts] = useState([]);
+  const { category } = useParams();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getProducts().then((data) => {
-      setProducts(data);
-    });
-  }, []);
+    setLoading(true);
+    if (onLoadingChange) {
+      onLoadingChange(true);
+    }
+    getProducts()
+      .then((data) => {
+        if (category) {
+          const productsFilter = data.filter(
+            (product) => product.category === category,
+          );
+          setProducts(productsFilter);
+        } else {
+          setProducts(data);
+        }
+      })
+      .finally(() => {
+        setLoading(false);
+        if (onLoadingChange) {
+          onLoadingChange(false);
+        }
+      });
+  }, [category, onLoadingChange]);
 
   return (
     <div>
-      <ItemList products={products} />
+      {loading ? <Loader/> : <ItemList products={products} />}
     </div>
   );
 };
