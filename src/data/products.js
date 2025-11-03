@@ -14,7 +14,7 @@ const products = [
     name: "iPhone 16",
     description:
       "Pantalla OLED de 6.1”, chip A18, cámara dual de 48 MP, batería de larga duración.",
-    stock: 20,
+    stock: 0,
     image: "/image/iphone-16.avif",
     price: 900,
     category: "iphones-sellados",

@@ -7,30 +7,33 @@ import Footer from "./components/Footer/Footer";
 import { useState } from "react";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   return (
     <div>
       <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route
-            path="/"
-            element={<ItemListContainer onLoadingChange={setIsLoading} />}
-          />
-          <Route
-            path="/category/:category"
-            element={<ItemListContainer onLoadingChange={setIsLoading} />}
-          />
-          <Route
-            path="/detail/:id"
-            element={<ItemDetailContainer onLoadingChange={setIsLoading} />}
-          />
-          <Route path="/sobre-nosotros" element={<SobreNosotros />} />
-          <Route path="*" element={<PathNotFound />} />
-        </Routes>
-        {!isLoading && <Footer />}
+        <CartProvider>
+          <NavBar />
+          <Routes>
+            <Route
+              path="/"
+              element={<ItemListContainer onLoadingChange={setIsLoading} />}
+            />
+            <Route
+              path="/category/:category"
+              element={<ItemListContainer onLoadingChange={setIsLoading} />}
+            />
+            <Route
+              path="/detail/:id"
+              element={<ItemDetailContainer onLoadingChange={setIsLoading} />}
+            />
+            <Route path="/sobre-nosotros" element={<SobreNosotros />} />
+            <Route path="*" element={<PathNotFound />} />
+          </Routes>
+          {!isLoading && <Footer />}
+        </CartProvider>
       </BrowserRouter>
     </div>
   );

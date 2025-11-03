@@ -1,5 +1,17 @@
+import ItemCount from "../ItemCount/ItemCount";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+
 import "./itemdetail.css";
+
 const ItemDetail = ({ product }) => {
+  const { addProduct } = useContext(CartContext);
+
+  const addToCart = (count) => {
+    const newProduct = { ...product, quantity: count };
+    addProduct(newProduct);
+  };
+
   return (
     <div className="item-detail-container">
       <div className="container">
@@ -16,6 +28,11 @@ const ItemDetail = ({ product }) => {
 
           <div className="col-lg-6 col-md-6">
             <div className="product-info">
+              <div className="stock-badge mb-2">
+                {product.stock === 0 && (
+                  <span className="badge bg-danger">❌ Agotado</span>
+                )}
+              </div>
               <h1 className="product-title mb-3">{product.name}</h1>
 
               <div className="product-price mb-4">
@@ -28,9 +45,7 @@ const ItemDetail = ({ product }) => {
               </div>
 
               <div className="product-actions">
-                <button className="btn btn-primary btn-lg me-3">
-                  🛒 Agregar al Carrito
-                </button>
+                <ItemCount stock={product.stock} addToCart={addToCart} />
                 <button className="btn btn-outline-dark btn-lg">
                   💰 Comprar Ahora
                 </button>

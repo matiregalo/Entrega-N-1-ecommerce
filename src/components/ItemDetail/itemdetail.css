@@ -61,6 +61,13 @@
   margin-bottom: 1rem;
 }
 
+.stock-badge .badge {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
 .description-text {
   font-size: 1.1rem;
   line-height: 1.6;
