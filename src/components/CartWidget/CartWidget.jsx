@@ -1,24 +1,20 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import "./cartwidget.css"
+import { Link } from "react-router-dom";
+import "./cartwidget.css";
 
 const CartWidget = () => {
-  const { totalQuantity} = useContext(CartContext);
-   const quantity = totalQuantity();
+  const { totalQuantity } = useContext(CartContext);
+  const quantity = totalQuantity();
 
   return (
-    <div className="cart-widget">
+    <Link to="/cart" className="cart-widget">
       <div className="cart-icon-container">
         <i className="fs-1 bi bi-bag"></i>
-        {quantity > 0 && (
-          <span className="cart-badge">
-            {quantity}
-          </span>
-        )}
+        {quantity > 0 && <span className="cart-badge">{quantity}</span>}
       </div>
-    </div>
+    </Link>
   );
 };
-
 
 export default CartWidget;
