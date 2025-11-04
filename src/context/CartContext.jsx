@@ -6,7 +6,19 @@ const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addProduct = (newProduct) => {
-    setCart([...cart, newProduct]);
+    const productoExiste = cart.find(
+      (productCart) => productCart.id === newProduct.id,
+    );
+    if (productoExiste) {
+      const updatedCart = cart.map((productCart) =>
+        productCart.id === newProduct.id
+          ? { ...productCart, quantity: productCart.quantity + 1 }
+          : productCart,
+      );
+      setCart(updatedCart);
+    } else {
+      setCart([...cart, { ...newProduct, quantity: 1 }]);
+    }
   };
 
   const totalQuantity = () => {
@@ -17,11 +29,24 @@ const CartProvider = ({ children }) => {
     return quantity;
   };
 
-  const totalPrice = () => {};
+  const totalPrice = () => {
+    const total = cart.reduce(
+      (total, productCart) => total + productCart.quantity * productCart.price,
+      0,
+    );
+    return total;
+  };
 
-  const deleteProductById = () => {};
+  const deleteProductById = (productId) => {
+    const productosFiltrados = cart.filter(
+      (productCart) => productCart.id !== productId,
+    );
+    setCart(productosFiltrados);
+  };
 
-  const deleteCart = () => {};
+  const deleteCart = () => {
+    setCart([]);
+  };
 
   return (
     <div>
