@@ -1,15 +1,18 @@
 import ItemCount from "../ItemCount/ItemCount";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 
 import "./itemdetail.css";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ product }) => {
   const { addProduct } = useContext(CartContext);
+  const [quantityAdded, setQuantityAdded] = useState(0);
 
   const addToCart = (count) => {
     const newProduct = { ...product, quantity: count };
     addProduct(newProduct);
+    setQuantityAdded(count);
   };
 
   return (
@@ -46,10 +49,18 @@ const ItemDetail = ({ product }) => {
 
               <div className="product-actions">
                 <ItemCount stock={product.stock} addToCart={addToCart} />
-                <button className="btn btn-outline-dark btn-lg">
-                  💰 Comprar Ahora
-                </button>
               </div>
+                {product.stock > 0 && quantityAdded === 0 && (
+                  <div className="buy-now-section mt-3">
+                    <Link 
+                      to="/cart" 
+                      className="btn btn-warning btn-lg w-100"
+                      onClick={() => addToCart(1)} 
+                    >
+                      💰 Comprar Ahora
+                    </Link>
+                  </div>
+                )}
             </div>
           </div>
         </div>

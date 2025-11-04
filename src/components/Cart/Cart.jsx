@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import ItemListContainer  from "../ItemListContainer/ItemListContainer";
+import ItemListContainer from "../ItemListContainer/ItemListContainer";
 
-import "./cart.css"
+import "./cart.css";
 
 const Cart = () => {
   const { cart, deleteProductById, totalPrice, deleteCart, totalQuantity } =
@@ -43,7 +43,8 @@ const Cart = () => {
                           Cantidad: {productCart.quantity}
                         </p>
                         <p className="partial-price">
-                          Precio parcial: {productCart.price * productCart.quantity}
+                          Precio parcial:{" "}
+                          {productCart.price * productCart.quantity}
                         </p>
                       </div>
                       <button

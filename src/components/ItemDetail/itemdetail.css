@@ -74,10 +74,10 @@
   color: #666;
   margin: 0;
 }
-
 .product-actions {
   padding: 1.5rem 0;
   border-top: 1px solid #e9ecef;
+  margin-bottom: 1rem;
 }
 
 .btn {
@@ -85,6 +85,35 @@
   font-weight: 600;
   border-radius: 12px;
   transition: all 0.3s ease;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  transform: none !important;
+  box-shadow: none !important;
+  cursor: not-allowed;
+}
+
+/* Agregar esto a tu CSS existente */
+.btn-warning {
+  background: linear-gradient(135deg, #ffc107 0%, #ff8c00 100%);
+  border: none;
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-warning:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 193, 7, 0.6);
+  color: #000;
 }
 
 .btn-primary {
@@ -101,6 +130,12 @@
 .btn-outline-dark {
   border: 2px solid #333;
   color: #333;
+}
+
+.buy-now-section {
+  border-top: 1px solid #e9ecef;
+  padding-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .btn-outline-dark:hover {
