@@ -50,17 +50,17 @@ const ItemDetail = ({ product }) => {
               <div className="product-actions">
                 <ItemCount stock={product.stock} addToCart={addToCart} />
               </div>
-                {product.stock > 0 && quantityAdded === 0 && (
-                  <div className="buy-now-section mt-3">
-                    <Link 
-                      to="/cart" 
-                      className="btn btn-warning btn-lg w-100"
-                      onClick={() => addToCart(1)} 
-                    >
-                      💰 Comprar Ahora
-                    </Link>
-                  </div>
-                )}
+              {product.stock > 0 && quantityAdded === 0 && (
+                <div className="buy-now-section mt-3">
+                  <Link
+                    to="/cart"
+                    className="btn btn-warning btn-lg w-100"
+                    onClick={() => addToCart(1)}
+                  >
+                    💰 Comprar Ahora
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
