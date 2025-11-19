@@ -1,20 +1,22 @@
 //import { getProducts } from "../../data/products.js";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList.jsx";
 import Loader from "../Loader/Loader.jsx";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import db from "../../db/db.js";
+import { ErrorContext } from "../../context/ErrorContext.jsx";
+import Error from "../Error/Error.jsx"
 
 const ItemListContainer = ({ onLoadingChange }) => {
   const [products, setProducts] = useState([]);
   const { category } = useParams();
   const [loading, setLoading] = useState(true);
   const productsRef = collection(db, "products");
-  const [error, setError] = useState(false);
+  const { error, setError, clearError } = useContext(ErrorContext);
 
   const getProducts = async () => {
-    setError(false);
+    clearError();
     try {
       const dataDb = await getDocs(productsRef);
       const data = dataDb.docs.map((productDb) => {
@@ -22,7 +24,10 @@ const ItemListContainer = ({ onLoadingChange }) => {
       });
       setProducts(data);
     } catch (error) {
-      setError(true);
+      setError({
+        message: "No se encontraron productos",
+        code: 404,
+      });
     } finally {
       setLoading(false);
       if (onLoadingChange) {
@@ -32,7 +37,7 @@ const ItemListContainer = ({ onLoadingChange }) => {
   };
 
   const getProductsByCategory = async () => {
-    setError(false);
+    clearError();
     try {
       const q = query(productsRef, where("category", "==", category));
       const dataDb = await getDocs(q);
@@ -41,7 +46,10 @@ const ItemListContainer = ({ onLoadingChange }) => {
       });
       setProducts(data);
     } catch (error) {
-      setError(true);
+      setError({
+        message: `Error al cargar productos de la categoría ${category}`,
+        code: 500,
+      });
     } finally {
       setLoading(false);
       if (onLoadingChange) {
@@ -52,9 +60,9 @@ const ItemListContainer = ({ onLoadingChange }) => {
 
   useEffect(() => {
     setLoading(true);
-  if (onLoadingChange) {
-    onLoadingChange(true); 
-  }
+    if (onLoadingChange) {
+      onLoadingChange(true);
+    }
     if (category) {
       getProductsByCategory();
     } else {
@@ -65,7 +73,7 @@ const ItemListContainer = ({ onLoadingChange }) => {
     <div>
       {loading ? (
         <Loader />
-      ) : error ? (
+      ) : error.hasError ? (
         <Error />
       ) : (
         <ItemList products={products} />
