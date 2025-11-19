@@ -114,13 +114,18 @@
 }
 
 .submit-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s;
 }
 
@@ -210,15 +215,15 @@
     padding: 25px 20px;
     margin: 20px;
   }
-  
+
   .form-title {
     font-size: 24px;
   }
-  
+
   .form-input {
     padding: 12px 14px;
   }
-  
+
   .submit-btn {
     padding: 14px 20px;
   }
@@ -228,15 +233,15 @@
   .form-checkout-container {
     padding: 20px 10px;
   }
-  
+
   .form-title {
     font-size: 22px;
   }
-  
+
   .form-subtitle {
     font-size: 14px;
   }
-  
+
   .security-note {
     font-size: 12px;
     flex-direction: column;

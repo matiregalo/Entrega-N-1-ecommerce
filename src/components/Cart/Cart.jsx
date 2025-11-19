@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import ItemListContainer from "../ItemListContainer/ItemListContainer";
 import "./cart.css";
+import CartItem from "../CartItem/CartItem";
 
 const Cart = () => {
   const { cart, deleteProductById, totalPrice, deleteCart, totalQuantity } =
@@ -27,37 +28,13 @@ const Cart = () => {
               <>
                 <div className="cart-items">
                   {cart.map((productCart) => (
-                    <div key={productCart.id} className="cart-item">
-                      <img
-                        src={productCart.image}
-                        alt={productCart.name}
-                        className="cart-item-image"
-                      />
-                      <div className="cart-item-details">
-                        <p className="product-name">{productCart.name}</p>
-                        {productCart.quantity > 1 && (
-                          <p className="unit-price">
-                            Precio c/u {productCart.price}
-                          </p>
-                        )}
-                        <p className="quantity">
-                          Cantidad: {productCart.quantity}
-                        </p>
-                        <p className="partial-price">
-                          Precio parcial:{" "}
-                          {productCart.price * productCart.quantity}
-                        </p>
-                      </div>
-                      <button
-                        onClick={() => deleteProductById(productCart.id)}
-                        className="delete-btn"
-                      >
-                        <i className="bi bi-trash3"></i>
-                      </button>
-                    </div>
+                    <CartItem
+                      key={productCart.id}
+                      productCart={productCart}
+                      deleteProductById={deleteProductById}
+                    />
                   ))}
                 </div>
-
                 <div className="cart-summary">
                   <div className="summary-row">
                     <span>Total productos:</span>

@@ -19,6 +19,9 @@ const ItemDetailContainer = ({ onLoadingChange }) => {
     try {
       const productRef = doc(db, "products", id);
       const dataDb = await getDoc(productRef);
+      if (!dataDb.exists()) {
+        throw new Error();
+      }
       const data = { id: dataDb.id, ...dataDb.data() };
       setProduct(data);
     } catch (error) {

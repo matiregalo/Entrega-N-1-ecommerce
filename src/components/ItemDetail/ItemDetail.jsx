@@ -8,11 +8,13 @@ import "./itemdetail.css";
 const ItemDetail = ({ product }) => {
   const { addProduct } = useContext(CartContext);
   const [quantityAdded, setQuantityAdded] = useState(0);
+  const [viewItemCount, setViewItemCount] = useState(true);
 
   const addToCart = (count) => {
     const newProduct = { ...product, quantity: count };
     addProduct(newProduct);
     setQuantityAdded(count);
+    setViewItemCount(false);
   };
 
   return (
@@ -46,18 +48,25 @@ const ItemDetail = ({ product }) => {
                 <h5 className="section-title">Descripción</h5>
                 <p className="description-text">{product.description}</p>
               </div>
-
-              <div className="product-actions">
-                <ItemCount stock={product.stock} addToCart={addToCart} />
-              </div>
-              {product.stock > 0 && quantityAdded === 0 && (
+              {viewItemCount ? (
+                <div className="product-actions">
+                  <ItemCount stock={product.stock} addToCart={addToCart} />
+                  {product.stock > 0 && quantityAdded === 0 && (
+                    <div className="buy-now-section mt-3">
+                      <Link
+                        to="/cart"
+                        className="buy-now-btn"
+                        onClick={() => addToCart(1)}
+                      >
+                        Comprar Ahora
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              ) : (
                 <div className="buy-now-section mt-3">
-                  <Link
-                    to="/cart"
-                    className="btn btn-warning btn-lg w-100"
-                    onClick={() => addToCart(1)}
-                  >
-                    💰 Comprar Ahora
+                  <Link to="/cart" className="buy-now-btn">
+                    Ir al carrito
                   </Link>
                 </div>
               )}

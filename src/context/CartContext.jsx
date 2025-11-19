@@ -41,10 +41,19 @@ const CartProvider = ({ children }) => {
   };
 
   const deleteProductById = (productId) => {
-    const productosFiltrados = cart.filter(
-      (productCart) => productCart.id !== productId,
+    const indexProduct = cart.findIndex(
+      (productCart) => productCart.id === productId,
     );
-    setCart(productosFiltrados);
+    const newCart = [...cart];
+    if (newCart[indexProduct].quantity == 1) {
+      const productosFiltrados = newCart.filter(
+        (productCart) => productCart.id !== productId,
+      );
+      setCart(productosFiltrados);
+    } else {
+      newCart[indexProduct].quantity = newCart[indexProduct].quantity - 1;
+      setCart(newCart);
+    }
   };
 
   const deleteCart = () => {
