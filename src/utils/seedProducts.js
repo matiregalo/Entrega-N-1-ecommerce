@@ -110,9 +110,9 @@ const seedProducts = async () => {
     products.map(async ({ id, ...dataProduct }) => {
       await addDoc(productsRef, dataProduct);
     });
-    console.log("Productos subidos correctamente")
+    console.log("Productos subidos correctamente");
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
 seedProducts();

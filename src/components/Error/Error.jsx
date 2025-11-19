@@ -26,7 +26,8 @@ const Error = () => {
                 ¡Ups! Algo salió mal
               </h1>
               <p className="lead text-muted mb-4">
-               Redirigete a la página de inicio o contacta ha soporte si el error sigue persistiendo.
+                Redirigete a la página de inicio o contacta ha soporte si el
+                error sigue persistiendo.
               </p>
             </div>
           </div>

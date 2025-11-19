@@ -11,7 +11,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLoadingChange = (loading) => {
+    setIsLoading(loading);
+  };
   return (
     <div>
       <BrowserRouter>
@@ -20,15 +24,15 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<ItemListContainer onLoadingChange={setIsLoading} />}
+              element={<ItemListContainer onLoadingChange={handleLoadingChange} />}
             />
             <Route
               path="/category/:category"
-              element={<ItemListContainer onLoadingChange={setIsLoading} />}
+              element={<ItemListContainer onLoadingChange={handleLoadingChange} />}
             />
             <Route
               path="/detail/:id"
-              element={<ItemDetailContainer onLoadingChange={setIsLoading} />}
+              element={<ItemDetailContainer onLoadingChange={handleLoadingChange} />}
             />
             <Route path="/sobre-nosotros" element={<SobreNosotros />} />
             <Route path="/cart" element={<Cart />} />
