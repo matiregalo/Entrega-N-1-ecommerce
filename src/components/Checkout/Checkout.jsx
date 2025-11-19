@@ -37,7 +37,7 @@ const Checkout = () => {
     try {
       const orderRef = collection(db, "orders");
       const response = await addDoc(orderRef, order);
-      setOrderId(response.id)
+      setOrderId(response.id);
     } catch (error) {
       setError({
         message: `Error al subir la orden de compra de`,
@@ -49,9 +49,8 @@ const Checkout = () => {
   return (
     <div>
       {orderId ? (
-        <OrderReview orderId={orderId}/>
-      ) :
-      error.hasError ? (
+        <OrderReview orderId={orderId} />
+      ) : error.hasError ? (
         <Error />
       ) : (
         <FormCheckout

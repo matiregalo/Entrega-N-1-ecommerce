@@ -41,7 +41,7 @@
 }
 
 .order-success-title {
-  color: #28a745;
+  color: #000dff;
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 8px;
@@ -60,7 +60,7 @@
   background: #f8f9fa;
   border-radius: 12px;
   padding: 20px;
-  border-left: 4px solid #28a745;
+  border-left: 4px solid #0015ff;
 }
 
 .section-title {
@@ -90,7 +90,7 @@
 .order-id {
   color: #007bff;
   font-weight: 600;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   background: #f1f3f4;
   padding: 4px 8px;
   border-radius: 4px;
@@ -98,7 +98,7 @@
 }
 
 .order-total {
-  color: #28a745;
+  color: #0e02ff;
   font-weight: 700;
   font-size: 18px;
 }
@@ -173,7 +173,7 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #28a745, #20c997);
+  background: linear-gradient(135deg, #000000, #6b6a6a);
   color: white;
   border: none;
   padding: 12px 24px;
@@ -190,7 +190,7 @@
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #218838, #1e9e8a);
+  background: linear-gradient(135deg, #6c6d6c, #000000);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
   color: white;
@@ -241,15 +241,15 @@
     padding: 25px 20px;
     margin: 20px;
   }
-  
+
   .order-success-title {
     font-size: 24px;
   }
-  
+
   .action-buttons {
     flex-direction: column;
   }
-  
+
   .order-detail {
     flex-direction: column;
     align-items: flex-start;

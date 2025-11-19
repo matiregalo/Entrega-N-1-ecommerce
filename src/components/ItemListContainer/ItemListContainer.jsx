@@ -19,22 +19,22 @@ const ItemListContainer = ({ onLoadingChange }) => {
     clearError();
     try {
       let dataDb;
-      if (category){
+      if (category) {
         const q = query(productsRef, where("category", "==", category));
         dataDb = await getDocs(q);
-      } else{
+      } else {
         dataDb = await getDocs(productsRef);
       }
       const data = dataDb.docs.map((productDb) => {
         return { id: productDb.id, ...productDb.data() };
-      })
+      });
       setProducts(data);
     } catch (error) {
       setError({
-          message: category 
-        ? `Error al cargar productos de la categoría ${category}`
-        : "No se encontraron productos",
-      code: category ? 500 : 404,
+        message: category
+          ? `Error al cargar productos de la categoría ${category}`
+          : "No se encontraron productos",
+        code: category ? 500 : 404,
       });
     } finally {
       setLoading(false);
