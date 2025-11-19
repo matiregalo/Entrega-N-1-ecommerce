@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import ItemListContainer from "../ItemListContainer/ItemListContainer";
-
+import Checkout from "../Checkout/Checkout";
 import "./cart.css";
 
 const Cart = () => {
@@ -66,9 +66,9 @@ const Cart = () => {
                     <span>Total a pagar:</span>
                     <span>${totalPrice()}</span>
                   </div>
-                  <button onClick={deleteCart} className="comp-cart-btn">
+                  <Link to="/checkout" className="comp-cart-btn">
                     Finalizar Compra
-                  </button>
+                  </Link>
                   <button onClick={deleteCart} className="clear-cart-btn">
                     Vaciar Carrito
                   </button>

@@ -1,23 +1,26 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const cartLocalStorage = JSON.parse(localStorage.getItem("cart-ecommerce"))
+  const [cart, setCart] = useState(cartLocalStorage ? cartLocalStorage : []);
+
+  useEffect(() => {
+    localStorage.setItem("cart-ecommerce", JSON.stringify(cart));
+  }, [cart]);
 
   const addProduct = (newProduct) => {
-    const productoExiste = cart.find(
+    const indexProduct = cart.findIndex(
       (productCart) => productCart.id === newProduct.id,
     );
-    if (productoExiste) {
-      const updatedCart = cart.map((productCart) =>
-        productCart.id === newProduct.id
-          ? { ...productCart, quantity: productCart.quantity + 1 }
-          : productCart,
-      );
-      setCart(updatedCart);
+    if (indexProduct !== -1) {
+      const newCart = [...cart];
+      newCart[indexProduct].quantity =
+        newCart[indexProduct].quantity + newProduct.quantity;
+      setCart(newCart);
     } else {
-      setCart([...cart, { ...newProduct, quantity: 1 }]);
+      setCart([...cart, newProduct]);
     }
   };
 
