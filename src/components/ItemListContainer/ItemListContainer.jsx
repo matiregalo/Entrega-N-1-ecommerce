@@ -6,7 +6,7 @@ import Loader from "../Loader/Loader.jsx";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import db from "../../db/db.js";
 import { ErrorContext } from "../../context/ErrorContext.jsx";
-import Error from "../Error/Error.jsx"
+import Error from "../Error/Error.jsx";
 
 const ItemListContainer = ({ onLoadingChange }) => {
   const [products, setProducts] = useState([]);

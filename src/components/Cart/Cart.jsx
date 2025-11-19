@@ -51,7 +51,7 @@ const Cart = () => {
                         onClick={() => deleteProductById(productCart.id)}
                         className="delete-btn"
                       >
-                        Eliminar
+                        <i className="bi bi-trash3"></i>
                       </button>
                     </div>
                   ))}
@@ -66,6 +66,9 @@ const Cart = () => {
                     <span>Total a pagar:</span>
                     <span>${totalPrice()}</span>
                   </div>
+                  <button onClick={deleteCart} className="comp-cart-btn">
+                    Finalizar Compra
+                  </button>
                   <button onClick={deleteCart} className="clear-cart-btn">
                     Vaciar Carrito
                   </button>

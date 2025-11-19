@@ -19,34 +19,34 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-      <ErrorProvider>
-        <CartProvider>
-          <NavBar />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <ItemListContainer onLoadingChange={handleLoadingChange} />
-              }
-            />
-            <Route
-              path="/category/:category"
-              element={
-                <ItemListContainer onLoadingChange={handleLoadingChange} />
-              }
-            />
-            <Route
-              path="/detail/:id"
-              element={
-                <ItemDetailContainer onLoadingChange={handleLoadingChange} />
-              }
-            />
-            <Route path="/sobre-nosotros" element={<SobreNosotros />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="*" element={<PathNotFound />} />
-          </Routes>
-          {!isLoading && <Footer />}
-        </CartProvider>
+        <ErrorProvider>
+          <CartProvider>
+            <NavBar />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <ItemListContainer onLoadingChange={handleLoadingChange} />
+                }
+              />
+              <Route
+                path="/category/:category"
+                element={
+                  <ItemListContainer onLoadingChange={handleLoadingChange} />
+                }
+              />
+              <Route
+                path="/detail/:id"
+                element={
+                  <ItemDetailContainer onLoadingChange={handleLoadingChange} />
+                }
+              />
+              <Route path="/sobre-nosotros" element={<SobreNosotros />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="*" element={<PathNotFound />} />
+            </Routes>
+            {!isLoading && <Footer />}
+          </CartProvider>
         </ErrorProvider>
       </BrowserRouter>
     </div>

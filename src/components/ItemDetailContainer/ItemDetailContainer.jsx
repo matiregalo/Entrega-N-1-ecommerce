@@ -1,32 +1,58 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getProductById } from "../../data/products.js";
 import ItemDetail from "../ItemDetail/ItemDetail.jsx";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader.jsx";
+import { doc, getDoc } from "firebase/firestore";
+import db from "../../db/db.js";
+import { ErrorContext } from "../../context/ErrorContext.jsx";
+import Error from "../Error/Error.jsx";
 
 const ItemDetailContainer = ({ onLoadingChange }) => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
+  const { error, setError, clearError } = useContext(ErrorContext);
+
+  const getProduct = async () => {
+    clearError();
+    try {
+      const productRef = doc(db, "products", id);
+      const dataDb = await getDoc(productRef);
+      const data = { id: dataDb.id, ...dataDb.data() };
+      setProduct(data);
+    } catch (error) {
+      setError({
+        message: `Error al cargar el producto con id ${id}`,
+        code: 404,
+      });
+    } finally {
+      setLoading(false);
+      if (onLoadingChange) {
+        onLoadingChange(false);
+      }
+    }
+  };
 
   useEffect(() => {
     setLoading(true);
     if (onLoadingChange) {
       onLoadingChange(true);
     }
-    getProductById(id)
-      .then((data) => {
-        setProduct(data);
-      })
-      .finally(() => {
-        setLoading(false);
-        if (onLoadingChange) {
-          onLoadingChange(false);
-        }
-      });
-  }, [id, onLoadingChange]);
+    getProduct();
+  }, []);
 
-  return <div>{loading ? <Loader /> : <ItemDetail product={product} />}</div>;
+  return (
+    <div>
+      {loading ? (
+        <Loader />
+      ) : error.hasError ? (
+        <Error />
+      ) : (
+        <ItemDetail product={product} />
+      )}
+    </div>
+  );
 };
 
 export default ItemDetailContainer;
