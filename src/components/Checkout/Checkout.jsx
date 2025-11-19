@@ -30,8 +30,8 @@ const Checkout = () => {
 
   const uploadOrder = async (order) => {
     try {
-    const orderRef = collection(db, "orders");
-    const response = await addDoc(orderRef, order);
+      const orderRef = collection(db, "orders");
+      const response = await addDoc(orderRef, order);
     } catch (error) {
       setError({
         message: `Error al subir la orden de compra de ${response.id}`,
