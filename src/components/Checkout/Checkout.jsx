@@ -6,6 +6,7 @@ import db from "../../db/db.js";
 import { ErrorContext } from "../../context/ErrorContext.jsx";
 import Error from "../Error/Error.jsx";
 import FormCheckout from "../FormCheckout/FormCheckout.jsx";
+import OrderReview from "../OrderReview/OrderReview.jsx";
 
 const Checkout = () => {
   const [dataForm, setDataForm] = useState({
@@ -48,11 +49,7 @@ const Checkout = () => {
   return (
     <div>
       {orderId ? (
-        //Pasar esto a un componente
-        <div>
-          <h2>Orden Generada Correctamente</h2>
-          <p>Guarde el identificador de su compra: {orderId}</p>
-        </div>
+        <OrderReview orderId={orderId}/>
       ) :
       error.hasError ? (
         <Error />
