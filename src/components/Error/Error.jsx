@@ -1,4 +1,5 @@
 import { useContext } from "react";
+
 import "./error.css";
 import { ErrorContext } from "../../context/ErrorContext";
 

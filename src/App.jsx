@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
@@ -5,8 +8,6 @@ import SobreNosotros from "./components/SobreNosotros/SobreNosotros";
 import PathNotFound from "./components/PathNotFound/PathNotFound";
 import Footer from "./components/Footer/Footer";
 import Cart from "./components/Cart/Cart";
-import { useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 import { ErrorProvider } from "./context/ErrorContext";
 import Checkout from "./components/Checkout/Checkout";

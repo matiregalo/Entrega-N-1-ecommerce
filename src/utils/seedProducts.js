@@ -1,5 +1,6 @@
-import db from "../db/db.js";
 import { collection, addDoc } from "firebase/firestore";
+
+import db from "../db/db.js";
 
 const products = [
   {

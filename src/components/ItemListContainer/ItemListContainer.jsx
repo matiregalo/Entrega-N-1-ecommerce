@@ -1,9 +1,9 @@
-//import { getProducts } from "../../data/products.js";
 import { useState, useEffect, useContext } from "react";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { useParams } from "react-router-dom";
+
 import ItemList from "../ItemList/ItemList.jsx";
 import Loader from "../Loader/Loader.jsx";
-import { collection, getDocs, query, where } from "firebase/firestore";
 import db from "../../db/db.js";
 import { ErrorContext } from "../../context/ErrorContext.jsx";
 import Error from "../Error/Error.jsx";

@@ -1,8 +1,9 @@
 import { useState, useEffect, useContext } from "react";
-import ItemDetail from "../ItemDetail/ItemDetail.jsx";
-import { useParams } from "react-router-dom";
-import Loader from "../Loader/Loader.jsx";
 import { doc, getDoc } from "firebase/firestore";
+import { useParams } from "react-router-dom";
+
+import ItemDetail from "../ItemDetail/ItemDetail.jsx";
+import Loader from "../Loader/Loader.jsx";
 import db from "../../db/db.js";
 import { ErrorContext } from "../../context/ErrorContext.jsx";
 import Error from "../Error/Error.jsx";

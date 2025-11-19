@@ -1,9 +1,11 @@
 import { useState, useContext } from "react";
-import { CartContext } from "../../context/CartContext";
 import { addDoc, collection } from "firebase/firestore";
+
+import { CartContext } from "../../context/CartContext";
 import db from "../../db/db.js";
 import { ErrorContext } from "../../context/ErrorContext.jsx";
 import Error from "../Error/Error.jsx";
+import FormCheckout from "../FormCheckout/FormCheckout.jsx";
 
 const Checkout = () => {
   const [dataForm, setDataForm] = useState({
@@ -13,6 +15,7 @@ const Checkout = () => {
   });
   const { cart, totalPrice } = useContext(CartContext);
   const { error, setError, clearError } = useContext(ErrorContext);
+  const [orderId, setOrderId] = useState(null);
 
   const handleChangeInput = (event) => {
     setDataForm({ ...dataForm, [event.target.name]: event.target.value });
@@ -29,46 +32,36 @@ const Checkout = () => {
   };
 
   const uploadOrder = async (order) => {
+    clearError();
     try {
       const orderRef = collection(db, "orders");
       const response = await addDoc(orderRef, order);
+      setOrderId(response.id)
     } catch (error) {
       setError({
-        message: `Error al subir la orden de compra de ${response.id}`,
-        code: 404,
+        message: `Error al subir la orden de compra de`,
+        code: 500,
       });
     }
   };
 
   return (
     <div>
-      {error.hasError ? (
+      {orderId ? (
+        //Pasar esto a un componente
+        <div>
+          <h2>Orden Generada Correctamente</h2>
+          <p>Guarde el identificador de su compra: {orderId}</p>
+        </div>
+      ) :
+      error.hasError ? (
         <Error />
       ) : (
-        <form onSubmit={sendOrder}>
-          <input
-            type="text"
-            name="fullname"
-            value={dataForm.fullname}
-            onChange={handleChangeInput}
-            placeholder="Ingresa tu nombre"
-          />
-          <input
-            type="number"
-            name="phone"
-            value={dataForm.phone}
-            onChange={handleChangeInput}
-            placeholder="Ingresa tu telefono"
-          />
-          <input
-            type="email"
-            name="email"
-            value={dataForm.email}
-            onChange={handleChangeInput}
-            placeholder="Ingresa tu email"
-          />
-          <button type="submit">Enviar Orden</button>
-        </form>
+        <FormCheckout
+          dataForm={dataForm}
+          handleChangeInput={handleChangeInput}
+          sendOrder={sendOrder}
+        />
       )}
     </div>
   );

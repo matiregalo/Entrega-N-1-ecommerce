@@ -1,4 +1,5 @@
 import "./loader.css";
+
 const Loader = () => (
   <div className="container my-4">
     <div className="loading-container text-center py-5">
