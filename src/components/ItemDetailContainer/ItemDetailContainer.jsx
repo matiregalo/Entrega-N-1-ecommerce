@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from "react";
-import { getProductById } from "../../data/products.js";
 import ItemDetail from "../ItemDetail/ItemDetail.jsx";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader.jsx";

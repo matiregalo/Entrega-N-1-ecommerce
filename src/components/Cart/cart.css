@@ -19,31 +19,6 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.comp-cart-btn {
-  background-color: #000;
-  color: white;
-  border: 2px solid #000;
-  padding: 12px 30px;
-  font-size: 16px;
-  font-weight: 500;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 100%;
-  margin-top: 15px;
-  letter-spacing: 0.5px;
-}
-
-.comp-cart-btn:hover {
-  background-color: #333;
-  border-color: #333;
-  transform: translateY(-1px);
-}
-
-.comp-cart-btn:active {
-  transform: translateY(0);
-}
-
 .cart-sidebar {
   background: white;
   border-radius: 8px;
@@ -151,6 +126,66 @@
   border-top: 1px solid #e9ecef;
   padding-top: 10px;
   margin-top: 10px;
+}
+
+.comp-cart-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: black;
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(59, 64, 60, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.comp-cart-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.comp-cart-btn:hover::before {
+  left: 100%;
+}
+
+.comp-cart-btn:hover {
+  background: linear-gradient(135deg, #434944 0%, #334341 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(75, 83, 77, 0.3);
+  text-decoration: none;
+  color: white;
+}
+
+.comp-cart-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.comp-cart-btn i {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.comp-cart-btn:hover i {
+  transform: translateX(3px);
 }
 
 .clear-cart-btn {

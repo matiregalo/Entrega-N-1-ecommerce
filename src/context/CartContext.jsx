@@ -3,7 +3,7 @@ import { createContext, useState, useEffect } from "react";
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-  const cartLocalStorage = JSON.parse(localStorage.getItem("cart-ecommerce"))
+  const cartLocalStorage = JSON.parse(localStorage.getItem("cart-ecommerce"));
   const [cart, setCart] = useState(cartLocalStorage ? cartLocalStorage : []);
 
   useEffect(() => {
