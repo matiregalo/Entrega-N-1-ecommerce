@@ -1,0 +1,337 @@
+.item-count-container {
+  width: 100%;
+}
+
+.quantity-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.quantity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.quantity-label {
+  font-weight: 700;
+  color: #333;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity-label::before {
+  font-size: 1rem;
+}
+
+.stock-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.stock-text {
+  color: #28a745;
+  background: rgba(40, 167, 69, 0.1);
+  padding: 4px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+.stock-low {
+  color: #ffc107;
+  background: rgba(255, 193, 7, 0.1);
+  border-color: rgba(255, 193, 7, 0.2);
+}
+
+.stock-out {
+  color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+  border-color: rgba(220, 53, 69, 0.2);
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  border: 2px solid #e9ecef;
+  width: fit-content;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.quantity-controls:focus-within {
+  border-color: #007bff;
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.quantity-btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: white;
+  border-radius: 12px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #007bff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.quantity-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 123, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.quantity-btn:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.quantity-btn:hover:not(:disabled) {
+  background: #007bff;
+  color: white;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+}
+
+.quantity-btn:active:not(:disabled) {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.quantity-btn:disabled {
+  background: #e9ecef;
+  color: #adb5bd;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.quantity-display-container {
+  position: relative;
+}
+
+.quantity-display {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #333;
+  min-width: 60px;
+  text-align: center;
+  background: white;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.quantity-display:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.2);
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.add-to-cart-btn,
+.buy-now-btn {
+  padding: 1.25rem 2rem;
+  font-weight: 700;
+  border-radius: 14px;
+  transition: all 0.4s ease;
+  width: 100%;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.add-to-cart-btn::before,
+.buy-now-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.add-to-cart-btn:hover::before,
+.buy-now-btn:hover::before {
+  left: 100%;
+}
+
+.add-to-cart-btn {
+  background: linear-gradient(135deg, #000000 0%, #434343 100%);
+  color: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #333333 0%, #555555 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.buy-now-btn {
+  background: linear-gradient(135deg, #1b1e4d 0%, #4874a3 100%);
+  color: white;
+  font-weight: 800;
+  box-shadow: 0 6px 20px rgba(7, 61, 255, 0.4);
+}
+
+.buy-now-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #5b41cd 0%, #1c069d 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(30, 0, 255, 0.5);
+}
+
+.add-to-cart-btn:disabled,
+.buy-now-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  background: #6c757d !important;
+  color: #fff !important;
+}
+
+.add-to-cart-btn:disabled::before,
+.buy-now-btn:disabled::before {
+  display: none;
+}
+
+/* Estados de éxito */
+.add-to-cart-success {
+  animation: addToCartSuccess 0.6s ease;
+  background: linear-gradient(135deg, #28a745, #20c997) !important;
+}
+
+@keyframes addToCartSuccess {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive para ItemCount */
+@media (max-width: 768px) {
+  .quantity-controls {
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .quantity-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.4rem;
+  }
+
+  .quantity-display {
+    font-size: 1.3rem;
+    min-width: 50px;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .add-to-cart-btn,
+  .buy-now-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .quantity-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .action-buttons {
+    gap: 0.75rem;
+  }
+
+  .add-to-cart-btn,
+  .buy-now-btn {
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .quantity-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .quantity-label {
+    font-size: 1rem;
+  }
+
+  .stock-info {
+    font-size: 0.85rem;
+  }
+}
+
+/* Efecto de pulso para stock bajo */
+@keyframes pulseLowStock {
+  0% {
+    box-shadow: 0 0 0 0 rgba(7, 40, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+  }
+}
+
+.stock-low {
+  animation: pulseLowStock 2s infinite;
+}
