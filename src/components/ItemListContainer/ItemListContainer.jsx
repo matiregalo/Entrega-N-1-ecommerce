@@ -7,6 +7,7 @@ import Loader from "../Loader/Loader.jsx";
 import db from "../../db/db.js";
 import { ErrorContext } from "../../context/ErrorContext.jsx";
 import Error from "../Error/Error.jsx";
+import "./itemListContainer.css";
 
 const ItemListContainer = ({ onLoadingChange }) => {
   const [products, setProducts] = useState([]);
@@ -53,14 +54,16 @@ const ItemListContainer = ({ onLoadingChange }) => {
   }, [category]);
 
   return (
-    <div>
-      {loading ? (
-        <Loader />
-      ) : error.hasError ? (
-        <Error />
-      ) : (
-        <ItemList products={products} />
-      )}
+    <div className="item-list-container">
+      <div className="container">
+        {loading ? (
+          <Loader />
+        ) : error.hasError ? (
+          <Error />
+        ) : (
+          <ItemList products={products} />
+        )}
+      </div>
     </div>
   );
 };
