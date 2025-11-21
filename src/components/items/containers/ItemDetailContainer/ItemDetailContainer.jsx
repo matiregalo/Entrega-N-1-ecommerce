@@ -3,10 +3,10 @@ import { doc, getDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 
 import ItemDetail from "../../ItemDetail/ItemDetail.jsx";
-import Loader from "../Loader/Loader.js";
+import Loader from "../../../feedback/Loader/Loader.jsx";
 import db from "../../../../db/db.js";
 import { ErrorContext } from "../../../../context/ErrorContext.jsx";
-import Error from "../Error/Error.js";
+import Error from "../../../feedback/Error/Error.jsx";
 
 const ItemDetailContainer = ({ onLoadingChange }) => {
   const [product, setProduct] = useState({});

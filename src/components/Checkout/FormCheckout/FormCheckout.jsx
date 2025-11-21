@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 import "./formCheckout.css";
-import OrderItem from "../checkout/OrderItem/OrderItem";
+import OrderItem from "../OrderItem/OrderItem";
 
 const FormCheckout = ({ dataForm, handleChangeInput, sendOrder }) => {
   const { cart, totalPrice, totalQuantity } = useContext(CartContext);

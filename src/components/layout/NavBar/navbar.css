@@ -104,6 +104,12 @@
   margin-left: 1rem;
 }
 
+.navbar-icons {
+  display: flex;
+  align-items: center; /* alinea todos los iconos verticalmente */
+  gap: 1rem; /* separación pareja entre íconos */
+}
+
 @media (max-width: 991.98px) {
   .navbar-nav {
     text-align: center;

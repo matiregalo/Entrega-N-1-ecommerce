@@ -5,6 +5,7 @@ import { CartContext } from "../../../context/CartContext";
 
 import "./cart.css";
 import CartItem from "../CartItem/CartItem";
+import ItemListContainer from "../../items/containers/ItemListContainer/ItemListContainer";
 
 const Cart = () => {
   const { cart, deleteProductById, totalPrice, deleteCart, totalQuantity } =

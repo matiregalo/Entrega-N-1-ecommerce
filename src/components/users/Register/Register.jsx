@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { setDoc, doc } from "firebase/firestore";
 import "./register.css";
 import { ErrorContext } from "../../../context/ErrorContext.jsx";
-import Error from "../Error/Error.jsx";
+import Error from "../../feedback/Error/Error.jsx";
 import db from "../../../db/db.js";
 import Login_RegisterForm from "../Login-RegisterForm/Login-RegisterForm.jsx";
 
@@ -39,12 +39,14 @@ const Register = () => {
       await setDoc(doc(db, "users", userCredential.user.uid), {
         username: dataForm.username,
         email: dataForm.email,
+        emailVerified: false,
       });
       await sendEmailVerification(userCredential.user);
+      await auth.signOut();
       navigate("/login");
     } catch (error) {
       setError({
-        message: `Error al crear el usuario`,
+        message: `Error al crear el usuario ${error.message}`,
         code: 400,
       });
     }
@@ -69,7 +71,10 @@ const Register = () => {
                 onChange={handleChangeInput}
               />
             </div>
-            <Login_RegisterForm dataForm={dataForm} handleChangeInput={handleChangeInput}/>
+            <Login_RegisterForm
+              dataForm={dataForm}
+              handleChangeInput={handleChangeInput}
+            />
             <button className="submit" type="submit">
               Registrarme
             </button>

@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import { ErrorContext } from "../../../context/ErrorContext.jsx";
-import Error from "../Error/Error.jsx";
+import Error from "../../feedback/Error/Error.jsx";
 import Login_RegisterForm from "../Login-RegisterForm/Login-RegisterForm.jsx";
+import { AuthContext } from "../../../context/AuthContext.jsx";
+import Loader from "../../feedback/Loader/Loader";
 
 const Login = () => {
   const [dataForm, setDataForm] = useState({
@@ -14,9 +16,11 @@ const Login = () => {
   const auth = getAuth();
   const { error, setError, clearError } = useContext(ErrorContext);
   const navigate = useNavigate();
+  const { user, loading } = useContext(AuthContext);
 
   const handleChangeInput = (e) => {
     setDataForm({ ...dataForm, [e.target.name]: e.target.value });
+    clearError();
   };
 
   const handleSubmitForm = async (e) => {
@@ -29,17 +33,34 @@ const Login = () => {
         dataForm.password,
       );
       if (!userCredential.user.emailVerified) {
-        auth.signOut();
-        throw new Error();
+        await auth.signOut();
+        throw new Error("No has verificado tu email");
+      }
+      const userRef = doc(db, "users", userCredential.user.uid);
+      const userDoc = await getDoc(userRef);
+      if (!userDoc.exists()) {
+        await auth.signOut();
+        throw new Error("Usuario no encontrado en la base de datos");
       }
       navigate("/profile");
     } catch (error) {
       setError({
-        message: `Error al iniciar sesion`,
+        message: `Error al iniciar sesion, acuerdate de verificar el email que fue enviado, revisa en el spam`,
         code: 400,
       });
     }
   };
+
+  useEffect(() => {
+    if (!loading && user?.id) {
+      navigate("/profile");
+    }
+  }, [user, navigate, loading]);
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <div>
       {error.hasError ? (
@@ -48,7 +69,10 @@ const Login = () => {
         <div className="register">
           <form className="form-register" onSubmit={handleSubmitForm}>
             <h2>Iniciar sesion</h2>
-            <Login_RegisterForm dataForm={dataForm} handleChangeInput={handleChangeInput}/>
+            <Login_RegisterForm
+              dataForm={dataForm}
+              handleChangeInput={handleChangeInput}
+            />
             <button className="submit" type="submit">
               Iniciar sesion
             </button>

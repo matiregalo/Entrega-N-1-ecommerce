@@ -2,11 +2,11 @@ import { useState, useEffect, useContext } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 
-import ItemList from "../Items/ItemList/ItemList.js";
-import Loader from "../Loader/Loader.js";
+import ItemList from "../../ItemList/ItemList.jsx";
+import Loader from "../../../feedback/Loader/Loader.jsx";
 import db from "../../../../db/db.js";
 import { ErrorContext } from "../../../../context/ErrorContext.jsx";
-import Error from "../Error/Error.js";
+import Error from "../../../feedback/Error/Error.jsx";
 import "./itemListContainer.css";
 
 const ItemListContainer = ({ onLoadingChange }) => {

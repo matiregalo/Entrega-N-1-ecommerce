@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-import logo from "../../assets/logo.jpg";
-import CartWidget from "../CartWidget/CartWidget";
+import logo from "../../../assets/logo.jpg";
+import CartWidget from "../../cart/CartWidget/CartWidget";
 import "./navbar.css";
 import Login_RegisterWidget from "../../Users/Login-RegisterWidget/Login-RegisterWidget";
 
@@ -77,8 +77,10 @@ const NavBar = () => {
                 </Link>
               </li>
             </ul>
-            <Login_RegisterWidget />
-            <CartWidget />
+            <div className="navbar-icons">
+              <Login_RegisterWidget />
+              <CartWidget />
+            </div>
           </div>
         </div>
       </nav>

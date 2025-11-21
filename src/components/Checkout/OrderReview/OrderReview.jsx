@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 import { Link } from "react-router-dom";
 import "./OrderReview.css";
+import OrderItem from "../OrderItem/OrderItem";
 
 const OrderReview = ({ orderId }) => {
   const { cart, totalPrice, deleteCart } = useContext(CartContext);
@@ -57,7 +58,7 @@ const OrderReview = ({ orderId }) => {
               Realizar nueva compra
             </Link>
 
-            <Link to="/" className="btn-secondary">
+            <Link to="/" onClick={handleNewOrder} className="btn-secondary">
               <i className="bi bi-house"></i>
               Volver al inicio
             </Link>

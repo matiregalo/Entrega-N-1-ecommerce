@@ -4,9 +4,9 @@ import { addDoc, collection } from "firebase/firestore";
 import { CartContext } from "../../../context/CartContext.jsx";
 import db from "../../../db/db.js";
 import { ErrorContext } from "../../../context/ErrorContext.jsx";
-import Error from "../Error/Error.js";
+import Error from "../../feedback/Error/Error.jsx";
 import FormCheckout from "../FormCheckout/FormCheckout.jsx";
-import OrderReview from "../../OrderReview/OrderReview.jsx";
+import OrderReview from "../OrderReview/OrderReview.jsx";
 
 const Checkout = () => {
   const [dataForm, setDataForm] = useState({

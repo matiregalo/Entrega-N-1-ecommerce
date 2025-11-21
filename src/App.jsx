@@ -1,20 +1,20 @@
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import NavBar from "./components/NavBar/NavBar";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
-import SobreNosotros from "./components/SobreNosotros/SobreNosotros";
-import PathNotFound from "./components/PathNotFound/PathNotFound";
-import Footer from "./components/Footer/Footer";
-import Cart from "./components/Cart/Cart";
+import NavBar from "./components/layout/NavBar/NavBar";
+import ItemListContainer from "./components/items/containers/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./components/items/containers/ItemDetailContainer/ItemDetailContainer";
+import SobreNosotros from "./components/pages/SobreNosotros/SobreNosotros";
+import PathNotFound from "./components/pages/PathNotFound/PathNotFound";
+import Footer from "./components/layout/Footer/Footer";
+import Cart from "./components/cart/Cart/Cart";
 import { CartProvider } from "./context/CartContext";
 import { ErrorProvider } from "./context/ErrorContext";
-import Checkout from "./components/Checkout/Checkout";
-import Register from "./components/Register/Register";
-import Login from "./components/Login/Login";
+import Checkout from "./components/checkout/Checkout/Checkout";
+import Register from "./components/users/Register/Register";
+import Login from "./components/users/Login/Login";
 import { AuthProvider } from "./context/AuthContext";
-import Profile from "./components/Profile/Profile";
+import Profile from "./components/users/Profile/Profile";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);

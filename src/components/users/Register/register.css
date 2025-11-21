@@ -1,4 +1,4 @@
-.form-checkout-container {
+.register {
   min-height: calc(100vh - 120px);
   display: flex;
   align-items: center;
@@ -7,7 +7,7 @@
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
-.form-checkout-card {
+.form-register {
   background: white;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -28,35 +28,21 @@
   }
 }
 
-.form-header {
+.form-register h2 {
   text-align: center;
   margin-bottom: 30px;
   padding-bottom: 20px;
   border-bottom: 2px solid #e9ecef;
-}
-
-.form-title {
   color: #333;
   font-size: 28px;
   font-weight: 700;
-  margin-bottom: 8px;
 }
 
-.form-subtitle {
-  color: #666;
-  font-size: 16px;
-  margin: 0;
-}
-
-.checkout-form {
-  margin-bottom: 25px;
-}
-
-.form-group {
+.input-box {
   margin-bottom: 20px;
 }
 
-.form-label {
+.input-box label {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -66,12 +52,12 @@
   font-size: 14px;
 }
 
-.form-label i {
+.input-box label i {
   color: #007bff;
   font-size: 16px;
 }
 
-.form-input {
+.input {
   width: 100%;
   padding: 14px 16px;
   border: 2px solid #e9ecef;
@@ -81,7 +67,7 @@
   background: #f8f9fa;
 }
 
-.form-input:focus {
+.input:focus {
   outline: none;
   border-color: #007bff;
   background: white;
@@ -89,11 +75,11 @@
   transform: translateY(-1px);
 }
 
-.form-input::placeholder {
+.input::placeholder {
   color: #999;
 }
 
-.submit-btn {
+.submit {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,7 +99,7 @@
   overflow: hidden;
 }
 
-.submit-btn::before {
+.submit::before {
   content: "";
   position: absolute;
   top: 0;
@@ -129,41 +115,82 @@
   transition: left 0.5s;
 }
 
-.submit-btn:hover::before {
+.submit:hover::before {
   left: 100%;
 }
 
-.submit-btn:hover:not(:disabled) {
+.submit:hover:not(:disabled) {
   background: linear-gradient(135deg, #333333 0%, #555555 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-.submit-btn:active:not(:disabled) {
+.submit:active:not(:disabled) {
   transform: translateY(0);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.submit-btn:disabled {
+.submit:disabled {
   background: #6c757d;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
 }
 
-.submit-btn:disabled::before {
+.submit:disabled::before {
   display: none;
 }
 
-.submit-btn i {
+.submit i {
   font-size: 18px;
   transition: transform 0.3s ease;
 }
 
-.submit-btn:hover:not(:disabled) i {
+.submit:hover:not(:disabled) i {
   transform: translateX(3px);
 }
 
+.button-to-login {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #e9ecef;
+  margin-top: 25px;
+}
+
+.button-to-login p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+  transform: translateX(2px);
+}
+
+/* Validación visual */
+.input:invalid:not(:focus):not(:placeholder-shown) {
+  border-color: #dc3545;
+  background: #fff5f5;
+}
+
+.input:valid:not(:focus):not(:placeholder-shown) {
+  border-color: #28a745;
+  background: #f8fff8;
+}
+
+/* Estados de carga */
 .spin {
   animation: spin 1s linear infinite;
 }
@@ -177,74 +204,40 @@
   }
 }
 
-.form-footer {
-  text-align: center;
-  padding-top: 20px;
-  border-top: 1px solid #e9ecef;
-}
-
-.security-note {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  color: #28a745;
-  font-size: 14px;
-  margin: 0;
-  font-weight: 500;
-}
-
-.security-note i {
-  font-size: 16px;
-}
-
-/* Validación visual */
-.form-input:invalid:not(:focus):not(:placeholder-shown) {
-  border-color: #dc3545;
-  background: #fff5f5;
-}
-
-.form-input:valid:not(:focus):not(:placeholder-shown) {
-  border-color: #28a745;
-  background: #f8fff8;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
-  .form-checkout-card {
+  .form-register {
     padding: 25px 20px;
     margin: 20px;
   }
 
-  .form-title {
+  .form-register h2 {
     font-size: 24px;
   }
 
-  .form-input {
+  .input {
     padding: 12px 14px;
   }
 
-  .submit-btn {
+  .submit {
     padding: 14px 20px;
   }
 }
 
 @media (max-width: 576px) {
-  .form-checkout-container {
+  .register {
     padding: 20px 10px;
   }
 
-  .form-title {
+  .form-register h2 {
     font-size: 22px;
   }
 
-  .form-subtitle {
-    font-size: 14px;
+  .button-to-login p {
+    font-size: 13px;
   }
 
-  .security-note {
-    font-size: 12px;
-    flex-direction: column;
-    gap: 4px;
+  .link {
+    font-size: 14px;
   }
 }
