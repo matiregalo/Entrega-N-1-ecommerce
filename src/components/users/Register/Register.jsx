@@ -9,7 +9,7 @@ import { setDoc, doc } from "firebase/firestore";
 import "./register.css";
 import { ErrorContext } from "../../../context/ErrorContext.jsx";
 import Error from "../../feedback/Error/Error.jsx";
-import db from "../../../db/db.js";
+import db, { app } from "../../../db/db.js";
 import Login_RegisterForm from "../Login-RegisterForm/Login-RegisterForm.jsx";
 
 const Register = () => {
@@ -18,7 +18,7 @@ const Register = () => {
     email: "",
     password: "",
   });
-  const auth = getAuth();
+  const auth = getAuth(app);
   const { error, setError, clearError } = useContext(ErrorContext);
   const navigate = useNavigate();
 

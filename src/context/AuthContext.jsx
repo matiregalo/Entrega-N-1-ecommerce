@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { getDoc, doc } from "firebase/firestore";
-import db from "../db/db.js";
+import db, { app } from "../db/db.js";
 import Error from "../components/feedback/Error/Error.jsx";
 import { ErrorContext } from "./ErrorContext.jsx";
 const AuthContext = createContext();
@@ -9,7 +9,7 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
-  const auth = getAuth();
+  const auth = getAuth(app);
   const { error, setError, clearError } = useContext(ErrorContext);
 
   const signOutUser = async () => {

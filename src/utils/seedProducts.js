@@ -1,4 +1,4 @@
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 
 import db from "../db/db.js";
 
@@ -108,12 +108,18 @@ const products = [
 const seedProducts = async () => {
   try {
     const productsRef = collection(db, "products");
-    products.map(async ({ id, ...dataProduct }) => {
-      await addDoc(productsRef, dataProduct);
-    });
-    console.log("Productos subidos correctamente");
+    const existingProducts = await getDocs(productsRef);
+    
+    if (existingProducts.empty) {
+      await Promise.all(
+        products.map(async ({ id, ...dataProduct }) => {
+          await addDoc(productsRef, dataProduct);
+        })
+      );
+    } 
   } catch (error) {
-    console.log(error);
+    console.error("❌ Error al subir productos:", error);
   }
 };
-seedProducts();
+
+export default seedProducts;

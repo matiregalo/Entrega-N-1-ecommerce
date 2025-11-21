@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
 import logo from "../../../assets/logo.jpg";
-import CartWidget from "../../cart/CartWidget/CartWidget";
+import CartWidget from "../../Cart/CartWidget/CartWidget";
 import "./navbar.css";
-import Login_RegisterWidget from "../../Users/Login-RegisterWidget/Login-RegisterWidget";
+import Login_RegisterWidget from "../../users/Login-RegisterWidget/Login-RegisterWidget";
 
 const NavBar = () => {
   return (

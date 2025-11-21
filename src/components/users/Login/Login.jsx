@@ -7,7 +7,7 @@ import Error from "../../feedback/Error/Error.jsx";
 import Login_RegisterForm from "../Login-RegisterForm/Login-RegisterForm.jsx";
 import { AuthContext } from "../../../context/AuthContext.jsx";
 import Loader from "../../feedback/Loader/Loader";
-import db from "../../../db/db.js";
+import db, { app } from "../../../db/db.js";
 import { getDoc, doc } from "firebase/firestore"; 
 import Success from "../../feedback/Success/Success.jsx"; 
 
@@ -16,7 +16,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const auth = getAuth();
+  const auth = getAuth(app);
   const { error, setError, clearError } = useContext(ErrorContext);
   const navigate = useNavigate();
   const { user, loading } = useContext(AuthContext);

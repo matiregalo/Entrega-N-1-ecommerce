@@ -7,10 +7,10 @@ import ItemDetailContainer from "./components/items/containers/ItemDetailContain
 import SobreNosotros from "./components/pages/SobreNosotros/SobreNosotros";
 import PathNotFound from "./components/pages/PathNotFound/PathNotFound";
 import Footer from "./components/layout/Footer/Footer";
-import Cart from "./components/cart/Cart/Cart";
+import Cart from "./components/Cart/Cart/Cart";
 import { CartProvider } from "./context/CartContext";
 import { ErrorProvider } from "./context/ErrorContext";
-import Checkout from "./components/checkout/Checkout/Checkout";
+import Checkout from "./components/Checkout/Checkout/Checkout";
 import Register from "./components/users/Register/Register";
 import Login from "./components/users/Login/Login";
 import { AuthProvider } from "./context/AuthContext";

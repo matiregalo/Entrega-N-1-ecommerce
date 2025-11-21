@@ -25,14 +25,29 @@ Este es un **proyecto de e-commerce de venta de iPhones** desarrollado con React
 ### Instrucciones para instalar y configurar el proyecto:
 
 Prerrequisitos:
-Node.js (versión 14 o superior),
-npm,
-Cuenta de Firebase (para base de datos)
+- Node.js (versión 14 o superior)
+- npm
+- Cuenta de Firebase (para base de datos)
 
 1. Clonar el repositorio
-2. Instalar dependencias
-3. Configurar Firebase
-4. Ejecutar el proyecto
+2. Instalar dependencias: `npm install`
+3. Configurar Firebase:
+   - Ve a [Firebase Console](https://console.firebase.google.com/)
+   - Crea un nuevo proyecto o selecciona uno existente
+   - Ve a Configuración del proyecto > Tus aplicaciones
+   - Si no tienes una app web, crea una
+   - Copia los valores de configuración
+   - Crea un archivo `.env` en la raíz del proyecto con el siguiente formato:
+     ```
+     VITE_API_KEY=tu-api-key
+     VITE_AUTH_DOMAIN=tu-proyecto.firebaseapp.com
+     VITE_PROJECT_ID=tu-proyecto-id
+     VITE_STORAGE_BUCKET=tu-proyecto.appspot.com
+     VITE_MESSAGING_SENDER_ID=tu-messaging-sender-id
+     VITE_APP_ID=tu-app-id
+     ```
+   - Reemplaza los valores con los de tu proyecto de Firebase
+4. Ejecutar el proyecto: `npm run dev`
 
 ### Instrucciones para contribuir en el proyecto:
 
