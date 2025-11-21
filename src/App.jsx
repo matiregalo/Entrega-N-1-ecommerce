@@ -11,6 +11,9 @@ import Cart from "./components/Cart/Cart";
 import { CartProvider } from "./context/CartContext";
 import { ErrorProvider } from "./context/ErrorContext";
 import Checkout from "./components/Checkout/Checkout";
+import Register from "./components/Register/Register";
+import Login from "./components/Login/Login";
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -46,6 +49,9 @@ function App() {
               <Route path="/sobre-nosotros" element={<SobreNosotros />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+
               <Route path="*" element={<PathNotFound />} />
             </Routes>
             {!isLoading && <Footer />}

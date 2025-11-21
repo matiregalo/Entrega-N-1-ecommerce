@@ -2,18 +2,20 @@
 
 Este es un **proyecto de e-commerce de venta de iPhones** desarrollado con React:
 
-##  Descripción del Proyecto
+## Descripción del Proyecto
 
 **E-commerce especializado en venta de iPhones** desarrollado como una Single Page Application (SPA) con React, que incluye:
 
-###  Arquitectura Técnica
+### Arquitectura Técnica
+
 - **Frontend**: React con componentes funcionales y hooks
 - **Routing**: React Router para navegación SPA
 - **Base de datos**: Firebase/Firestore para productos y órdenes
 - **Estado global**: Context API para el carrito de compras
 - **Estilos**: Bootstrap
 
-###  Funcionalidades Principales
+### Funcionalidades Principales
+
 - **Catálogo de productos** con filtrado por categorías
 - **Vista detallada** de cada celular
 - **Carrito de compras** persistente
@@ -21,16 +23,19 @@ Este es un **proyecto de e-commerce de venta de iPhones** desarrollado con React
 - **Gestión de stock** y validaciones
 
 ### Instrucciones para instalar y configurar el proyecto:
+
 Prerrequisitos:
 Node.js (versión 14 o superior),
 npm,
 Cuenta de Firebase (para base de datos)
+
 1. Clonar el repositorio
 2. Instalar dependencias
-4. Configurar Firebase
-5. Ejecutar el proyecto
+3. Configurar Firebase
+4. Ejecutar el proyecto
 
 ### Instrucciones para contribuir en el proyecto:
+
 1. Haz un fork del repositorio
 2. Crea tu rama
 3. Realiza tus cambios, guardalos y haz commit
@@ -55,5 +60,5 @@ Cuenta de Firebase (para base de datos)
 14. **Estructura escalable para futuras expansiones**
 
 ## Linkedin del autor para futuros proyectos:
-**www.linkedin.com/in/matias-regalo** 
 
+**www.linkedin.com/in/matias-regalo**
