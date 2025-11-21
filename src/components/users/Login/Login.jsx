@@ -1,12 +1,15 @@
 import { useState, useContext, useEffect } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "./login.css";
 import { ErrorContext } from "../../../context/ErrorContext.jsx";
 import Error from "../../feedback/Error/Error.jsx";
 import Login_RegisterForm from "../Login-RegisterForm/Login-RegisterForm.jsx";
 import { AuthContext } from "../../../context/AuthContext.jsx";
 import Loader from "../../feedback/Loader/Loader";
+import db from "../../../db/db.js";
+import { getDoc, doc } from "firebase/firestore"; 
+import Success from "../../feedback/Success/Success.jsx"; 
 
 const Login = () => {
   const [dataForm, setDataForm] = useState({
@@ -17,10 +20,25 @@ const Login = () => {
   const { error, setError, clearError } = useContext(ErrorContext);
   const navigate = useNavigate();
   const { user, loading } = useContext(AuthContext);
+    const [successMessage, setSuccessMessage] = useState("");
+  const location = useLocation(); 
+
+useEffect(() => {
+    if (location.state?.successMessage) {
+      setSuccessMessage(location.state.successMessage);
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [location, navigate]);
+
 
   const handleChangeInput = (e) => {
     setDataForm({ ...dataForm, [e.target.name]: e.target.value });
     clearError();
+    setSuccessMessage(""); 
+  };
+
+  const handleCloseSuccess = () => {
+    setSuccessMessage(""); 
   };
 
   const handleSubmitForm = async (e) => {
@@ -51,15 +69,11 @@ const Login = () => {
     }
   };
 
-  useEffect(() => {
-    if (!loading && user?.id) {
-      navigate("/profile");
-    }
-  }, [user, navigate, loading]);
-
   if (loading) {
     return <Loader />;
   }
+
+
 
   return (
     <div>
@@ -68,6 +82,12 @@ const Login = () => {
       ) : (
         <div className="register">
           <form className="form-register" onSubmit={handleSubmitForm}>
+              {successMessage && (
+            <Success 
+              message={successMessage} 
+              onClose={handleCloseSuccess}
+            />
+          )}
             <h2>Iniciar sesion</h2>
             <Login_RegisterForm
               dataForm={dataForm}

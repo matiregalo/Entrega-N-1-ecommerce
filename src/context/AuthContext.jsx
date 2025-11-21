@@ -45,6 +45,8 @@ const AuthProvider = ({ children }) => {
             await signOut(auth);
             throw new Error();
           }
+        } else {
+          setUser({});
         }
       } catch (error) {
         setError({

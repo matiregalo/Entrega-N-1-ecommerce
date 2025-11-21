@@ -35,15 +35,20 @@ const Register = () => {
         dataForm.email,
         dataForm.password,
       );
-      if (!userCredential) throw new Error();
-      await setDoc(doc(db, "users", userCredential.user.uid), {
+
+      setDoc(doc(db, "users", userCredential.user.uid), {
         username: dataForm.username,
         email: dataForm.email,
         emailVerified: false,
       });
+
       await sendEmailVerification(userCredential.user);
-      await auth.signOut();
-      navigate("/login");
+
+      navigate("/login", { 
+        state: { 
+          successMessage: "¡Te hemos enviado un email de verificación! Revisa tu bandeja de entrada y también la carpeta de spam." 
+        } 
+      });
     } catch (error) {
       setError({
         message: `Error al crear el usuario ${error.message}`,
@@ -51,6 +56,7 @@ const Register = () => {
       });
     }
   };
+
   return (
     <div>
       {error.hasError ? (

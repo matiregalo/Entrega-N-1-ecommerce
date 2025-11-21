@@ -1,14 +1,14 @@
 import { useContext } from "react";
-
+import { useNavigate } from "react-router-dom";
 import "./error.css";
 import { ErrorContext } from "../../../context/ErrorContext";
 
 const Error = () => {
   const { error, clearError } = useContext(ErrorContext);
-
+  const navigate = useNavigate()
   const handleRetry = () => {
     clearError();
-    window.location.reload();
+    navigate('/');
   };
 
   return (
@@ -39,7 +39,7 @@ const Error = () => {
                 Redirigete a la página de inicio o contacta ha soporte si el
                 error sigue persistiendo.
               </p>
-              <button className="btn btn-primary btn-lg" onClick={handleRetry}>
+              <button className="not-found-button" onClick={handleRetry}>
                 Reintentar
               </button>
             </div>
