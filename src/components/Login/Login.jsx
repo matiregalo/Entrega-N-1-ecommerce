@@ -1,19 +1,12 @@
 import { useState } from "react";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-} from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { setDoc, doc } from "firebase/firestore";
-import "./register.css";
+import "./login.css";
 import { ErrorContext } from "../../context/ErrorContext.jsx";
 import Error from "../Error/Error.jsx";
-import db from "../../db/db.js";
 
-const Register = () => {
+const Login = () => {
   const [dataForm, setDataForm] = useState({
-    username: "",
     email: "",
     password: "",
   });
@@ -29,21 +22,19 @@ const Register = () => {
     clearError();
     e.preventDefault();
     try {
-      const userCredential = await createUserWithEmailAndPassword(
+      const userCredential = await signInWithEmailAndPassword(
         auth,
         dataForm.email,
         dataForm.password,
       );
-      if (!userCredential) throw new Error();
-      await setDoc(doc(db, "users", userCredential.user.uid), {
-        username: dataForm.username,
-        email: dataForm.email,
-      });
-      await sendEmailVerification(userCredential.user);
-      navigate("/login");
+      if (!userCredential.user.emailVerified) {
+        auth.signOut();
+        throw new Error();
+      }
+      navigate("/profile");
     } catch (error) {
       setError({
-        message: `Error al crear el usuario`,
+        message: `Error al iniciar sesion`,
         code: 400,
       });
     }
@@ -55,19 +46,7 @@ const Register = () => {
       ) : (
         <div className="register">
           <form className="form-register" onSubmit={handleSubmitForm}>
-            <h2>Registro</h2>
-            <div className="input-box">
-              <label htmlFor="username">Nombre de usuario</label>
-              <input
-                className="input"
-                placeholder="Nombre de usuario"
-                type="username"
-                id="username"
-                name="username"
-                value={dataForm.username}
-                onChange={handleChangeInput}
-              />
-            </div>
+            <h2>Iniciar sesion</h2>
             <div className="input-box">
               <label htmlFor="email">Email</label>
               <input
@@ -93,12 +72,12 @@ const Register = () => {
               />
             </div>
             <button className="submit" type="submit">
-              Registrarme
+              Iniciar sesion
             </button>
             <div className="button-to-login">
-              <p>Ya tienes un usuario</p>
-              <Link className="link" to="/login">
-                Iniciar sesion!
+              <p>Eres nuevo?</p>
+              <Link className="link" to="/register">
+                Registrate aqui!
               </Link>
             </div>
           </form>
@@ -108,4 +87,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;

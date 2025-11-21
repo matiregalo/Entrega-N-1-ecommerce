@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
 import CartWidget from "../CartWidget/CartWidget";
 import "./navbar.css";
+import Login_RegisterWidget from "../Login-RegisterWidget/Login-RegisterWidget";
 
 const NavBar = () => {
   return (
@@ -76,6 +77,7 @@ const NavBar = () => {
                 </Link>
               </li>
             </ul>
+            <Login_RegisterWidget />
             <CartWidget />
           </div>
         </div>

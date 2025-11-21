@@ -13,7 +13,8 @@ import { ErrorProvider } from "./context/ErrorContext";
 import Checkout from "./components/Checkout/Checkout";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
-
+import { AuthProvider } from "./context/AuthContext";
+import Profile from "./components/Profile/Profile";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,37 +26,41 @@ function App() {
     <div>
       <BrowserRouter>
         <ErrorProvider>
-          <CartProvider>
-            <NavBar />
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <ItemListContainer onLoadingChange={handleLoadingChange} />
-                }
-              />
-              <Route
-                path="/category/:category"
-                element={
-                  <ItemListContainer onLoadingChange={handleLoadingChange} />
-                }
-              />
-              <Route
-                path="/detail/:id"
-                element={
-                  <ItemDetailContainer onLoadingChange={handleLoadingChange} />
-                }
-              />
-              <Route path="/sobre-nosotros" element={<SobreNosotros />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/checkout" element={<Checkout />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/login" element={<Login />} />
-
-              <Route path="*" element={<PathNotFound />} />
-            </Routes>
-            {!isLoading && <Footer />}
-          </CartProvider>
+          <AuthProvider>
+            <CartProvider>
+              <NavBar />
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <ItemListContainer onLoadingChange={handleLoadingChange} />
+                  }
+                />
+                <Route
+                  path="/category/:category"
+                  element={
+                    <ItemListContainer onLoadingChange={handleLoadingChange} />
+                  }
+                />
+                <Route
+                  path="/detail/:id"
+                  element={
+                    <ItemDetailContainer
+                      onLoadingChange={handleLoadingChange}
+                    />
+                  }
+                />
+                <Route path="/sobre-nosotros" element={<SobreNosotros />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="*" element={<PathNotFound />} />
+              </Routes>
+              {!isLoading && <Footer />}
+            </CartProvider>
+          </AuthProvider>
         </ErrorProvider>
       </BrowserRouter>
     </div>
