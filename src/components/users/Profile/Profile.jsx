@@ -1,13 +1,12 @@
 import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../../context/AuthContext";
 
-const Profile = (params) => {
+const Profile = () => {
   const { user, loading, signOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  useEffect =
-    (() => {
+  useEffect (() => {
       if (!user.id && !loading) {
         navigate("/login");
       }

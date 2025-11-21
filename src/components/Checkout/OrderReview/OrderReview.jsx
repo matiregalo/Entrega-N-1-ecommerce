@@ -45,7 +45,7 @@ const OrderReview = ({ orderId }) => {
           <h3 className="section-title">Resumen de productos</h3>
           <div className="products-list">
             {cart.map((item) => (
-              <OrderItem key={item.id} item={item} />            
+              <OrderItem key={item.id} item={item} />
             ))}
           </div>
         </div>

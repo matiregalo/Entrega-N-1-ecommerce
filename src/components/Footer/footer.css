@@ -1,8 +1,0 @@
-.hover-effect:hover {
-  transform: translateX(3px);
-  transition: transform 0.2s ease;
-  color: #0dcaf0 !important;
-}
-.border-bottom {
-  border-color: #6c757d !important;
-}
