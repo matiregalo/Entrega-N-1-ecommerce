@@ -13,6 +13,7 @@ import { ErrorProvider } from "./context/ErrorContext";
 import Checkout from "./components/Checkout/Checkout/Checkout";
 import Register from "./components/users/Register/Register";
 import Login from "./components/users/Login/Login";
+import VerifyEmail from "./components/users/VerifyEmail/VerifyEmail";
 import { AuthProvider } from "./context/AuthContext";
 import Profile from "./components/users/Profile/Profile";
 
@@ -55,6 +56,7 @@ function App() {
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/verify-email" element={<VerifyEmail />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="*" element={<PathNotFound />} />
               </Routes>

@@ -9,9 +9,13 @@ const Profile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!loading && !user?.id) {
-      navigate("/login");
-    }
+    const timer = setTimeout(() => {
+      if (!loading && !user?.id) {
+        navigate("/login", { replace: true });
+      }
+    }, 500);
+    
+    return () => clearTimeout(timer);
   }, [user, loading, navigate]);
 
   const getInitial = () => {

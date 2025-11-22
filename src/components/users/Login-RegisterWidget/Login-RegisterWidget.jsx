@@ -6,7 +6,7 @@ import "./login-registerWidget.css";
 
 const Login_RegisterWidget = () => {
   const { user } = useContext(AuthContext);
-  const destination = user?.id ? "/profile" : "/login";
+  const destination = user?.id ? "/profile" : "/register";
 
   return (
     <Link to={destination} className="login-register-widget">

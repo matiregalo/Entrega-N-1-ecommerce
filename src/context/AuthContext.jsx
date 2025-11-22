@@ -1,8 +1,7 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
-import { getDoc, doc } from "firebase/firestore";
+import { getDoc, doc, setDoc } from "firebase/firestore";
 import db, { app } from "../db/db.js";
-import Error from "../components/feedback/Error/Error.jsx";
 import { ErrorContext } from "./ErrorContext.jsx";
 const AuthContext = createContext();
 
@@ -10,7 +9,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   const auth = getAuth(app);
-  const { error, setError, clearError } = useContext(ErrorContext);
+  const { setError, clearError } = useContext(ErrorContext);
 
   const signOutUser = async () => {
     clearError();
@@ -19,7 +18,7 @@ const AuthProvider = ({ children }) => {
       setUser({});
     } catch (error) {
       setError({
-        message: `Error al cerrar sesion`,
+        message: "Error al cerrar sesión",
         code: 400,
       });
     }
@@ -42,15 +41,35 @@ const AuthProvider = ({ children }) => {
             const userData = { id: dataDb.id, ...dataDb.data() };
             setUser(userData);
           } else {
-            await signOut(auth);
-            throw new Error();
+            // Lo crea temporalmente, totalmente necesario para si el usuario inicia sesion con el link de verificacion
+            try {
+              await setDoc(userRef, {
+                username: user.email?.split("@")[0] || "Usuario",
+                email: user.email,
+                emailVerified: user.emailVerified,
+              });
+              const newDataDb = await getDoc(userRef);
+              if (newDataDb.exists()) {
+                const userData = { id: newDataDb.id, ...newDataDb.data() };
+                setUser(userData);
+              } else {
+                await signOut(auth);
+                setUser({});
+              }
+            } catch (setDocError) {
+              if (import.meta.env.DEV) {
+                console.error("Error al crear documento del usuario:", setDocError);
+              }
+              await signOut(auth);
+              setUser({});
+            }
           }
         } else {
           setUser({});
         }
       } catch (error) {
         setError({
-          message: `Error al cargar datos`,
+          message: "Error al cargar datos del usuario",
           code: 400,
         });
       } finally {
