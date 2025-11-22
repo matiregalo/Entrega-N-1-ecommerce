@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import useTitle from "../../../hooks/useTitle.js";
+import { Link, useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { CartContext } from "../../../context/CartContext";
 import ItemCount from "../ItemCount/ItemCount";
 import "./itemdetail.css";
@@ -9,8 +9,77 @@ const ItemDetail = ({ product }) => {
   const { addProduct } = useContext(CartContext);
   const [quantityAdded, setQuantityAdded] = useState(0);
   const [viewItemCount, setViewItemCount] = useState(true);
+  const location = useLocation();
+  const baseUrl = window.location.origin;
+  const currentUrl = `${baseUrl}${location.pathname}`;
+  
   const title = product? product.name : ''
-  useTitle({title})
+  const description = product
+    ? `${product.name} - ${product.description?.substring(0, 120) || 'Compra este iPhone en iMarket. Excelente calidad y precio garantizado.'}... Precio: $${product.price}. Compra con confianza.`
+    : ''
+  
+  const categoryName = product?.category === "iphones-sellados" 
+    ? "iPhones Sellados" 
+    : product?.category === "iphones-seminuevos"
+    ? "iPhones Seminuevos"
+    : "iPhones";
+  const categoryUrl = product?.category 
+    ? `${baseUrl}/category/${product.category}`
+    : baseUrl;
+
+  const productSchema = product ? {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "description": product.description || description,
+    "image": product.image,
+    "offers": {
+      "@type": "Offer",
+      "url": currentUrl,
+      "priceCurrency": "USD",
+      "price": product.price.toString(),
+      "availability": product.stock > 0 
+        ? "https://schema.org/InStock" 
+        : "https://schema.org/OutOfStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "iMarket"
+      }
+    },
+    "brand": {
+      "@type": "Brand",
+      "name": "Apple"
+    },
+    "category": product.category === "iphones-sellados" 
+      ? "Smartphone Nuevo" 
+      : "Smartphone Reacondicionado"
+  } : null;
+
+  const breadcrumbSchema = product ? {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": baseUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": categoryName,
+        "item": categoryUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": product.name,
+        "item": currentUrl
+      }
+    ]
+  } : null;
+  
   const addToCart = (count) => {
     const newProduct = { ...product, quantity: count };
     addProduct(newProduct);
@@ -20,6 +89,37 @@ const ItemDetail = ({ product }) => {
 
   return (
     <div className="item-detail-container">
+      {product && (
+        <Helmet>
+          <title>{title} | iMarket</title>
+          <meta name="description" content={description} />
+          <link rel="canonical" href={currentUrl} />
+          
+          <meta property="og:type" content="product" />
+          <meta property="og:url" content={currentUrl} />
+          <meta property="og:title" content={`${title} | iMarket`} />
+          <meta property="og:description" content={description} />
+          <meta property="og:image" content={product.image} />
+          <meta property="og:site_name" content="iMarket" />
+          
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:url" content={currentUrl} />
+          <meta name="twitter:title" content={`${title} | iMarket`} />
+          <meta name="twitter:description" content={description} />
+          <meta name="twitter:image" content={product.image} />
+          
+          {productSchema && (
+            <script type="application/ld+json">
+              {JSON.stringify(productSchema)}
+            </script>
+          )}
+          {breadcrumbSchema && (
+            <script type="application/ld+json">
+              {JSON.stringify(breadcrumbSchema)}
+            </script>
+          )}
+        </Helmet>
+      )}
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-md-6 mb-4">

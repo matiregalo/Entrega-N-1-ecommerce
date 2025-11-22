@@ -1,15 +1,14 @@
 import { useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 import Loader from "../../feedback/Loader/Loader";
 import "./profile.css";
-import useTitle from "../../../hooks/useTitle";
+import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
   const { user, loading, signOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  useTitle({title: "Perfil"})
-
+  const location = useLocation();
   useEffect(() => {
     const timer = setTimeout(() => {
       if (!loading && !user?.id) {
@@ -31,6 +30,12 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
+      <Helmet>
+        <title>Perfil | iMarket</title>
+        <meta name="description" content="Gestiona tu perfil de usuario en iMarket. Revisa tu información personal y accede a tus compras de iPhones." />
+        <link rel="canonical" href={`${window.location.origin}${location.pathname}`} />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       {loading ? (
         <Loader />
       ) : (

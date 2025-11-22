@@ -1,0 +1,20 @@
+# robots.txt para iMarket
+# Permite a los buscadores indexar las páginas públicas
+
+User-agent: *
+Allow: /
+Allow: /category/
+Allow: /detail/
+Allow: /sobre-nosotros
+
+# Bloquea páginas privadas y administrativas
+Disallow: /cart
+Disallow: /checkout
+Disallow: /register
+Disallow: /login
+Disallow: /profile
+Disallow: /verify-email
+
+# Sitemap (actualizar con tu URL cuando tengas dominio)
+# Sitemap: https://tu-dominio.com/sitemap.xml
+

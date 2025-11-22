@@ -3,7 +3,7 @@ import { CartContext } from "../../../context/CartContext";
 import { Link } from "react-router-dom";
 import "./OrderReview.css";
 import OrderItem from "../OrderItem/OrderItem";
-import useTitle from "../../../hooks/useTitle";
+import { Helmet } from "react-helmet-async";
 
 const OrderReview = ({ orderId }) => {
   const { cart, totalPrice, deleteCart } = useContext(CartContext);
@@ -12,11 +12,12 @@ const OrderReview = ({ orderId }) => {
     deleteCart();
   };
 
-  useTitle({title: "Resumen de compra"})
-
-
   return (
     <div className="order-review-container">
+      <Helmet>
+        <title>Resumen de compra | iMarket</title>
+        <meta name="description" content="Tu compra ha sido completada exitosamente. Revisa los detalles de tu pedido y guarda tu número de orden para futuras consultas." />
+      </Helmet>
       <div className="order-review-card">
         <div className="order-success-header">
           <h1 className="order-success-title">¡Compra Exitosa!</h1>

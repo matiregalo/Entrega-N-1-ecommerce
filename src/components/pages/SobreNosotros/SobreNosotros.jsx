@@ -1,9 +1,29 @@
-import useTitle from "../../../hooks/useTitle";
+import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 
 const SobreNosotros = () => {
-  useTitle({title: "Sobre nosotros"})
+  const location = useLocation();
+  const baseUrl = window.location.origin;
+  const currentUrl = `${baseUrl}${location.pathname}`;
+  
   return (
     <div className="container my-5">
+      <Helmet>
+        <title>Sobre nosotros | iMarket</title>
+        <meta name="description" content="Conoce iMarket, tu tienda online de confianza para iPhones en Uruguay. Ofrecemos iPhones sellados y seminuevos de calidad con garantía. Aceptamos tu equipo como parte de pago." />
+        <link rel="canonical" href={currentUrl} />
+        
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={currentUrl} />
+        <meta property="og:title" content="Sobre nosotros | iMarket" />
+        <meta property="og:description" content="Conoce iMarket, tu tienda online de confianza para iPhones en Uruguay. Ofrecemos iPhones sellados y seminuevos de calidad con garantía. Aceptamos tu equipo como parte de pago." />
+        <meta property="og:site_name" content="iMarket" />
+        
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:url" content={currentUrl} />
+        <meta name="twitter:title" content="Sobre nosotros | iMarket" />
+        <meta name="twitter:description" content="Conoce iMarket, tu tienda online de confianza para iPhones en Uruguay. Ofrecemos iPhones sellados y seminuevos de calidad con garantía." />
+      </Helmet>
       <div className="row justify-content-center">
         <div className="col-lg-10 col-xl-8">
           <div className="text-center mb-5">

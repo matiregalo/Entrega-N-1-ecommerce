@@ -1,10 +1,13 @@
-import useTitle from "../../../hooks/useTitle";
+import { Helmet } from "react-helmet-async";
 import "./PathNotFound.css";
 
 const PathNotFound = () => {
-    useTitle({title: "Ruta no encontrada"})
   return (
     <div className="not-found-container">
+      <Helmet>
+        <title>Ruta no encontrada | iMarket</title>
+        <meta name="description" content="La página que buscas no existe en iMarket. Regresa al inicio para encontrar los mejores iPhones." />
+      </Helmet>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-6 col-md-8 text-center">

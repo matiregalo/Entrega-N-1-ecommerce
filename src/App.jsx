@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 
 import NavBar from "./components/layout/NavBar/NavBar";
 import ItemListContainer from "./components/items/containers/ItemListContainer/ItemListContainer";
@@ -24,7 +25,7 @@ function App() {
     setIsLoading(loading);
   };
   return (
-    <div>
+    <HelmetProvider>
       <BrowserRouter>
         <ErrorProvider>
           <AuthProvider>
@@ -65,7 +66,7 @@ function App() {
           </AuthProvider>
         </ErrorProvider>
       </BrowserRouter>
-    </div>
+    </HelmetProvider>
   );
 }
 

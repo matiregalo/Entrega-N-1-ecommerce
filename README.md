@@ -179,10 +179,71 @@ Este es un **proyecto de e-commerce de venta de iPhones** desarrollado con React
 26. **Código limpio** sin console.logs en producción
 27. **Semilla de productos** automática al iniciar la aplicación
 
+#### SEO (Search Engine Optimization):
+28. **Meta tags dinámicos** en todas las páginas con react-helmet-async
+29. **Meta descriptions** personalizadas por página para mejor posicionamiento
+30. **Títulos dinámicos** optimizados por contenido (productos, categorías, páginas)
+31. **Schema.org JSON-LD** para productos (Product Schema) con información de precio, disponibilidad y marca
+32. **Schema.org JSON-LD** para breadcrumbs (BreadcrumbList) para mejor navegación en buscadores
+33. **Schema.org JSON-LD** para organización (Organization Schema) en la página principal
+34. **Open Graph tags** para compartir en redes sociales (Facebook, LinkedIn)
+35. **Twitter Cards** para mejor vista previa al compartir en Twitter
+36. **Canonical URLs** en todas las páginas para evitar contenido duplicado
+37. **Meta robots** configurados para páginas privadas (noindex, nofollow)
+38. **robots.txt** configurado para controlar el crawling de páginas públicas y privadas
+39. **Alt text** descriptivo en todas las imágenes para accesibilidad y SEO
+40. **Breadcrumbs visuales** con Bootstrap para mejor navegación del usuario
+
+### Optimización SEO
+
+El proyecto implementa un conjunto completo de optimizaciones SEO siguiendo las mejores prácticas actuales:
+
+#### Meta Tags y Headers:
+- **Títulos dinámicos** por página con formato: `{Título de página} | iMarket`
+- **Meta descriptions** personalizadas y descriptivas (150-160 caracteres)
+- **Canonical URLs** para evitar problemas de contenido duplicado
+- **Meta robots** configurados apropiadamente:
+  - Páginas públicas: indexadas normalmente
+  - Páginas privadas (login, register, cart, checkout, profile): `noindex, nofollow`
+
+#### Schema.org (Datos Estructurados):
+- **Product Schema**: Implementado en páginas de detalle de productos con:
+  - Nombre, descripción e imagen del producto
+  - Información de oferta (precio, moneda, disponibilidad)
+  - Marca (Apple) y categoría
+  - Información del vendedor (iMarket)
+  
+- **BreadcrumbList Schema**: Implementado en páginas de productos y categorías para mostrar la jerarquía de navegación
+
+- **Organization Schema**: Implementado en la página principal con información de la empresa
+
+#### Open Graph y Twitter Cards:
+- **Open Graph tags** para mejor presentación al compartir en redes sociales
+- **Twitter Cards** con tipo `summary_large_image` para productos
+- Permite vista previa con imagen, título y descripción al compartir URLs
+
+#### Navegación y Accesibilidad:
+- **Breadcrumbs visuales** implementados con Bootstrap
+- **Alt text descriptivo** en todas las imágenes
+- **URLs amigables** con React Router
+
+#### robots.txt:
+- Configurado para permitir indexación de páginas públicas
+- Bloquea indexación de páginas privadas y administrativas
+
+#### Archivos SEO:
+- `public/robots.txt`: Configuración de crawling para buscadores
+- Meta tags gestionados dinámicamente con `react-helmet-async` en cada componente
+
+**Nota**: Para producción, asegúrate de actualizar las URLs en `robots.txt` y `index.html` con tu dominio real.
+
 ### Estructura del Proyecto
 
 ```
 Entrega-N-1-ecommerce/
+├── public/
+│   ├── image/              # Imágenes de productos
+│   └── robots.txt          # Configuración para buscadores (SEO)
 ├── src/
 │   ├── components/          # Componentes React
 │   │   ├── Cart/           # Componentes del carrito
@@ -203,6 +264,7 @@ Entrega-N-1-ecommerce/
 │   ├── App.jsx             # Componente principal con rutas
 │   └── main.jsx            # Punto de entrada de la aplicación
 ├── .env                    # Variables de entorno (NO incluir en git)
+├── index.html              # HTML principal con meta tags base
 ├── package.json            # Dependencias y scripts
 └── README.md              # Este archivo
 ```
@@ -219,12 +281,29 @@ Entrega-N-1-ecommerce/
 
 - **React** 19.1.1
 - **React Router DOM** 7.4.4
+- **react-helmet-async** 2.0.5 (Gestión de meta tags y SEO)
 - **Firebase** 12.6.0 (Authentication + Firestore)
 - **Bootstrap** 5.3.8
 - **Bootstrap Icons** 1.13.1
 - **Vite** 7.1.12
 - **ESLint** 9.36.0
 - **Prettier** 3.6.2
+
+### Dependencias SEO
+
+El proyecto utiliza `react-helmet-async` para gestionar dinámicamente los meta tags en cada página. Esto permite:
+- Títulos únicos por página
+- Meta descriptions personalizadas
+- Open Graph y Twitter Cards dinámicos
+- Schema.org JSON-LD estructurado
+- Canonical URLs dinámicas
+
+**Instalación** (si necesitas reinstalar):
+```bash
+npm install react-helmet-async --legacy-peer-deps
+```
+
+*Nota: Se usa `--legacy-peer-deps` porque react-helmet-async aún no tiene soporte oficial para React 19 en sus peer dependencies, pero funciona correctamente.*
 
 ## LinkedIn del autor para futuros proyectos:
 

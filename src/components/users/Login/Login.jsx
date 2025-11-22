@@ -10,7 +10,7 @@ import Loader from "../../feedback/Loader/Loader";
 import db, { app } from "../../../db/db.js";
 import { getDoc, doc, setDoc } from "firebase/firestore"; 
 import Success from "../../feedback/Success/Success.jsx"; 
-import useTitle from "../../../hooks/useTitle.js";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const [dataForm, setDataForm] = useState({
@@ -24,7 +24,6 @@ const Login = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const location = useLocation(); 
 
-  useTitle({title: "Login"})
   useEffect(() => {
     if (!loading && user && Object.keys(user).length > 0 && location.pathname === "/login") {
       navigate("/profile", { replace: true });
@@ -114,6 +113,12 @@ const Login = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Login | iMarket</title>
+        <meta name="description" content="Inicia sesión en iMarket. Accede a tu cuenta para comprar los mejores iPhones sellados y seminuevos con garantía." />
+        <link rel="canonical" href={`${window.location.origin}${location.pathname}`} />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       {error.hasError ? (
         <ErrorComponent />
       ) : (

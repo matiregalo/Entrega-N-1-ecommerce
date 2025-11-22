@@ -4,7 +4,7 @@ import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
 } from "firebase/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { setDoc, doc } from "firebase/firestore";
 import "./register.css";
 import { ErrorContext } from "../../../context/ErrorContext.jsx";
@@ -12,7 +12,7 @@ import ErrorComponent from "../../feedback/Error/Error.jsx";
 import Loader from "../../feedback/Loader/Loader.jsx";
 import db, { app } from "../../../db/db.js";
 import Login_RegisterForm from "../Login-RegisterForm/Login-RegisterForm.jsx";
-import useTitle from "../../../hooks/useTitle.js";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const [dataForm, setDataForm] = useState({
@@ -24,6 +24,7 @@ const Register = () => {
   const auth = getAuth(app);
   const { error, setError, clearError } = useContext(ErrorContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleChangeInput = (e) => {
     setDataForm({ ...dataForm, [e.target.name]: e.target.value });
@@ -142,10 +143,14 @@ const Register = () => {
   if (isLoading) {
     return <Loader />;
   }
-  useTitle({title: "Registrar"})
-
   return (
     <div>
+      <Helmet>
+        <title>Registrar | iMarket</title>
+        <meta name="description" content="Crea tu cuenta en iMarket. Regístrate para comprar iPhones de calidad con garantía. Proceso rápido y seguro." />
+        <link rel="canonical" href={`${window.location.origin}${location.pathname}`} />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       {error.hasError ? (
         <ErrorComponent />
       ) : (

@@ -1,20 +1,28 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { CartContext } from "../../../context/CartContext";
 
 import "./cart.css";
 import CartItem from "../CartItem/CartItem";
 import ItemListContainer from "../../items/containers/ItemListContainer/ItemListContainer";
-import useTitle from "../../../hooks/useTitle";
+import { Helmet } from "react-helmet-async";
 
 const Cart = () => {
   const { cart, deleteProductById, totalPrice, deleteCart, totalQuantity } =
     useContext(CartContext);
-  useTitle({title: "Carrito"})
-
+  const location = useLocation();
+  const baseUrl = window.location.origin;
+  const currentUrl = `${baseUrl}${location.pathname}`;
+  
   return (
     <div className="cart-page">
+      <Helmet>
+        <title>Carrito | iMarket</title>
+        <meta name="description" content="Revisa los productos en tu carrito de compras. Completa tu compra de iPhones en iMarket con seguridad y garantía." />
+        <link rel="canonical" href={currentUrl} />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <div className="cart-container">
         <div className="products-section">
           <ItemListContainer />

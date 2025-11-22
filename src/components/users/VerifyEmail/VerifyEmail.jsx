@@ -2,6 +2,7 @@ import { useEffect, useState, useContext, useRef } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { getAuth, applyActionCode } from "firebase/auth";
 import { app } from "../../../db/db.js";
+import { Helmet } from "react-helmet-async";
 import Loader from "../../feedback/Loader/Loader.jsx";
 import Error from "../../feedback/Error/Error.jsx";
 import { ErrorContext } from "../../../context/ErrorContext.jsx";
@@ -93,6 +94,10 @@ const VerifyEmail = () => {
 
   return (
     <div className="verify-email-container">
+      <Helmet>
+        <title>Verificar email | iMarket</title>
+        <meta name="description" content="Verifica tu email en iMarket. Confirma tu dirección de correo electrónico para completar tu registro y acceder a tu cuenta." />
+      </Helmet>
       {error.hasError && <Error />}
     </div>
   );

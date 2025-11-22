@@ -1,10 +1,13 @@
-import useTitle from "../../../hooks/useTitle";
+import { Helmet } from "react-helmet-async";
 import "./loader.css";
 
 const Loader = () => {
-  useTitle({title: "Cargando.."})
-
   return (
+    <>
+      <Helmet>
+        <title>Cargando.. | iMarket</title>
+        <meta name="description" content="Cargando productos en iMarket. Encontrando los mejores iPhones para ti." />
+      </Helmet>
   <div className="container my-4">
     <div className="loading-container text-center py-5">
       <div className="loading-icon mb-3">
@@ -16,6 +19,7 @@ const Loader = () => {
       <p className="text-muted">Encontrando los mejores productos para ti</p>
     </div>
   </div>
+    </>
   )
 };
 

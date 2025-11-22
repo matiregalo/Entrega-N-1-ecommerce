@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./error.css";
 import { ErrorContext } from "../../../context/ErrorContext";
-import useTitle from "../../../hooks/useTitle";
+import { Helmet } from "react-helmet-async";
 
 const Error = () => {
   const { error, clearError } = useContext(ErrorContext);
@@ -11,10 +11,12 @@ const Error = () => {
     clearError();
     navigate('/');
   };
-  useTitle({title: "Error"})
-
   return (
     <div className="not-found-container">
+      <Helmet>
+        <title>Error | iMarket</title>
+        <meta name="description" content="Ha ocurrido un error en iMarket. Por favor, intenta nuevamente o contacta a soporte si el problema persiste." />
+      </Helmet>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-6 col-md-8 text-center">
