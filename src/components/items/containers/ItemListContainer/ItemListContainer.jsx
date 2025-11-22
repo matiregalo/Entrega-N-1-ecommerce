@@ -8,6 +8,7 @@ import db from "../../../../db/db.js";
 import { ErrorContext } from "../../../../context/ErrorContext.jsx";
 import Error from "../../../feedback/Error/Error.jsx";
 import "./itemListContainer.css";
+import useTitle from "../../../../hooks/useTitle.js";
 
 const ItemListContainer = ({ onLoadingChange }) => {
   const [products, setProducts] = useState([]);
@@ -44,6 +45,12 @@ const ItemListContainer = ({ onLoadingChange }) => {
       }
     }
   };
+const title =
+  category === "iphones-seminuevos"
+    ? "iPhones Seminuevos"
+    : category === "iphones-sellados"
+    ? "iPhones Sellados"
+    : "iPhones";        useTitle({title})
 
   useEffect(() => {
     setLoading(true);

@@ -1,4 +1,7 @@
+import useTitle from "../../../hooks/useTitle";
+
 const SobreNosotros = () => {
+  useTitle({title: "Sobre nosotros"})
   return (
     <div className="container my-5">
       <div className="row justify-content-center">

@@ -12,6 +12,7 @@ import ErrorComponent from "../../feedback/Error/Error.jsx";
 import Loader from "../../feedback/Loader/Loader.jsx";
 import db, { app } from "../../../db/db.js";
 import Login_RegisterForm from "../Login-RegisterForm/Login-RegisterForm.jsx";
+import useTitle from "../../../hooks/useTitle.js";
 
 const Register = () => {
   const [dataForm, setDataForm] = useState({
@@ -141,6 +142,7 @@ const Register = () => {
   if (isLoading) {
     return <Loader />;
   }
+  useTitle({title: "Registrar"})
 
   return (
     <div>

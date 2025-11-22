@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 import Loader from "../../feedback/Loader/Loader";
 import "./profile.css";
+import useTitle from "../../../hooks/useTitle";
 
 const Profile = () => {
   const { user, loading, signOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  useTitle({title: "Perfil"})
 
   useEffect(() => {
     const timer = setTimeout(() => {

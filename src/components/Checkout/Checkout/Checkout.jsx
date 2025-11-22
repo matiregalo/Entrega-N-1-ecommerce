@@ -7,6 +7,7 @@ import { ErrorContext } from "../../../context/ErrorContext.jsx";
 import Error from "../../feedback/Error/Error.jsx";
 import FormCheckout from "../FormCheckout/FormCheckout.jsx";
 import OrderReview from "../OrderReview/OrderReview.jsx";
+import useTitle from "../../../hooks/useTitle.js";
 
 const Checkout = () => {
   const [dataForm, setDataForm] = useState({
@@ -22,6 +23,8 @@ const Checkout = () => {
     setDataForm({ ...dataForm, [event.target.name]: event.target.value });
   };
 
+    useTitle({title: "Checkout"})
+  
   const sendOrder = (event) => {
     event.preventDefault();
     const order = {

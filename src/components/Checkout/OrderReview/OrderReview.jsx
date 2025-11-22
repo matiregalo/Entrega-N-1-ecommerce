@@ -3,6 +3,7 @@ import { CartContext } from "../../../context/CartContext";
 import { Link } from "react-router-dom";
 import "./OrderReview.css";
 import OrderItem from "../OrderItem/OrderItem";
+import useTitle from "../../../hooks/useTitle";
 
 const OrderReview = ({ orderId }) => {
   const { cart, totalPrice, deleteCart } = useContext(CartContext);
@@ -10,6 +11,9 @@ const OrderReview = ({ orderId }) => {
   const handleNewOrder = () => {
     deleteCart();
   };
+
+  useTitle({title: "Resumen de compra"})
+
 
   return (
     <div className="order-review-container">

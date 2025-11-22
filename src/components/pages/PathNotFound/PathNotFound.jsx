@@ -1,6 +1,8 @@
+import useTitle from "../../../hooks/useTitle";
 import "./PathNotFound.css";
 
 const PathNotFound = () => {
+    useTitle({title: "Ruta no encontrada"})
   return (
     <div className="not-found-container">
       <div className="container">

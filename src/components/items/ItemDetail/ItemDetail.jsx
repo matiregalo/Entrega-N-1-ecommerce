@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-
+import useTitle from "../../../hooks/useTitle.js";
 import { CartContext } from "../../../context/CartContext";
 import ItemCount from "../ItemCount/ItemCount";
 import "./itemdetail.css";
@@ -9,7 +9,8 @@ const ItemDetail = ({ product }) => {
   const { addProduct } = useContext(CartContext);
   const [quantityAdded, setQuantityAdded] = useState(0);
   const [viewItemCount, setViewItemCount] = useState(true);
-
+  const title = product? product.name : ''
+  useTitle({title})
   const addToCart = (count) => {
     const newProduct = { ...product, quantity: count };
     addProduct(newProduct);

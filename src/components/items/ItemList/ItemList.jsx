@@ -1,3 +1,4 @@
+import useTitle from "../../../hooks/useTitle";
 import Item from "../Item/Item";
 import "./itemlist.css";
 

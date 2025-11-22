@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./error.css";
 import { ErrorContext } from "../../../context/ErrorContext";
+import useTitle from "../../../hooks/useTitle";
 
 const Error = () => {
   const { error, clearError } = useContext(ErrorContext);
@@ -10,6 +11,7 @@ const Error = () => {
     clearError();
     navigate('/');
   };
+  useTitle({title: "Error"})
 
   return (
     <div className="not-found-container">

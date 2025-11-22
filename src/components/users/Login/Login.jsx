@@ -10,6 +10,7 @@ import Loader from "../../feedback/Loader/Loader";
 import db, { app } from "../../../db/db.js";
 import { getDoc, doc, setDoc } from "firebase/firestore"; 
 import Success from "../../feedback/Success/Success.jsx"; 
+import useTitle from "../../../hooks/useTitle.js";
 
 const Login = () => {
   const [dataForm, setDataForm] = useState({
@@ -23,6 +24,7 @@ const Login = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const location = useLocation(); 
 
+  useTitle({title: "Login"})
   useEffect(() => {
     if (!loading && user && Object.keys(user).length > 0 && location.pathname === "/login") {
       navigate("/profile", { replace: true });

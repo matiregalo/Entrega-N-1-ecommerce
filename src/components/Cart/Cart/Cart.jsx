@@ -6,10 +6,12 @@ import { CartContext } from "../../../context/CartContext";
 import "./cart.css";
 import CartItem from "../CartItem/CartItem";
 import ItemListContainer from "../../items/containers/ItemListContainer/ItemListContainer";
+import useTitle from "../../../hooks/useTitle";
 
 const Cart = () => {
   const { cart, deleteProductById, totalPrice, deleteCart, totalQuantity } =
     useContext(CartContext);
+  useTitle({title: "Carrito"})
 
   return (
     <div className="cart-page">
