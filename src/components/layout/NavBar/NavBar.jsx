@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import logo from "../../../assets/logo.jpg";
+import logo from "../../../assets/logoMRConFondo.png";
 import CartWidget from "../../Cart/CartWidget/CartWidget";
 import "./navbar.css";
 import Login_RegisterWidget from "../../users/Login-RegisterWidget/Login-RegisterWidget";

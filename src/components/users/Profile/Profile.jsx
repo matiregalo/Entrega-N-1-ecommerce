@@ -31,8 +31,8 @@ const Profile = () => {
   return (
     <div className="profile-container">
       <Helmet>
-        <title>Perfil | iMarket</title>
-        <meta name="description" content="Gestiona tu perfil de usuario en iMarket. Revisa tu información personal y accede a tus compras de iPhones." />
+        <title>Perfil | MrIphones</title>
+        <meta name="description" content="Gestiona tu perfil de usuario en MrIphones. Revisa tu información personal y accede a tus compras de iPhones." />
         <link rel="canonical" href={`${window.location.origin}${location.pathname}`} />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>

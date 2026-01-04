@@ -6,7 +6,7 @@ const Item = ({ product }) => {
   return (
     <li className="item">
       <div className="img-item-container">
-        <img className="img-item" src={product.image} alt={product.name || "iPhone en iMarket"} />
+        <img className="img-item" src={product.image} alt={product.name || "iPhone en MrIphones"} />
       </div>
       <div className="text-item">
         <p className="title-item">{product.name}</p>

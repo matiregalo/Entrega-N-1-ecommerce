@@ -95,8 +95,8 @@ const VerifyEmail = () => {
   return (
     <div className="verify-email-container">
       <Helmet>
-        <title>Verificar email | iMarket</title>
-        <meta name="description" content="Verifica tu email en iMarket. Confirma tu dirección de correo electrónico para completar tu registro y acceder a tu cuenta." />
+        <title>Verificar email | MrIphones</title>
+        <meta name="description" content="Verifica tu email en MrIphones. Confirma tu dirección de correo electrónico para completar tu registro y acceder a tu cuenta." />
       </Helmet>
       {error.hasError && <Error />}
     </div>

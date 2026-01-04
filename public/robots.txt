@@ -1,4 +1,4 @@
-# robots.txt para iMarket
+# robots.txt para MrIphones
 # Permite a los buscadores indexar las páginas públicas
 
 User-agent: *

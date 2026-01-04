@@ -57,9 +57,9 @@ const title =
     
 const description =
   category === "iphones-seminuevos"
-    ? "Explora nuestra selección de iPhones seminuevos de alta calidad. Teléfonos reacondicionados, revisados y con garantía. Encuentra tu iPhone al mejor precio en iMarket."
+    ? "Explora nuestra selección de iPhones seminuevos de alta calidad. Teléfonos reacondicionados, revisados y con garantía. Encuentra tu iPhone al mejor precio en MrIphones."
     : category === "iphones-sellados"
-    ? "Descubre los mejores iPhones sellados originales. Dispositivos nuevos y sin abrir, directamente del fabricante. Compra tu iPhone nuevo con garantía oficial en iMarket."
+    ? "Descubre los mejores iPhones sellados originales. Dispositivos nuevos y sin abrir, directamente del fabricante. Compra tu iPhone nuevo con garantía oficial en MrIphones."
     : "Encuentra los mejores iPhones al mejor precio. iPhones sellados y seminuevos de alta calidad. Compra con confianza y recibe tu iPhone con garantía. Tu tienda online de confianza.";
 
   const breadcrumbSchema = category ? {
@@ -92,19 +92,19 @@ const description =
   return (
     <div className="item-list-container">
       <Helmet>
-        <title>{title} | iMarket</title>
+        <title>{title} | MrIphones</title>
         <meta name="description" content={description} />
         <link rel="canonical" href={currentUrl} />
         
         <meta property="og:type" content="website" />
         <meta property="og:url" content={currentUrl} />
-        <meta property="og:title" content={`${title} | iMarket`} />
+        <meta property="og:title" content={`${title} | MrIphones`} />
         <meta property="og:description" content={description} />
-        <meta property="og:site_name" content="iMarket" />
+        <meta property="og:site_name" content="MrIphones" />
         
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:url" content={currentUrl} />
-        <meta name="twitter:title" content={`${title} | iMarket`} />
+        <meta name="twitter:title" content={`${title} | MrIphones`} />
         <meta name="twitter:description" content={description} />
         
         {breadcrumbSchema && (

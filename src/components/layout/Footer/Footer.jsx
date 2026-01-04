@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import logo from "../../../assets/logo.jpg";
+import logo from "../../../assets/logoMRConFondo.jpg";
 import "./footer.css";
 
 const Footer = () => {
@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="row align-items-start">
           <div className="col-lg-2 col-md-3 mb-3 mb-md-0">
             <div className="d-flex justify-content-center justify-content-md-start">
-              <img src={logo} className="img-fluid" alt="Logo imarket" />
+              <img src={logo} className="img-fluid" alt="Logo MrIphones" />
             </div>
           </div>
 
@@ -23,7 +23,7 @@ const Footer = () => {
             <p className="mb-2 small">Sáb: 9-13 hs</p>
 
             <h6 className="fw-semibold  mb-1 small"> Contacto</h6>
-            <p className="mb-1 small">imarket@gmail.com.uy</p>
+            <p className="mb-1 small">mrIphones@gmail.com.uy</p>
             <p className="mb-1 small">+598 92 386 617</p>
             <p className="mb-0 small">2418 0111</p>
           </div>
@@ -92,7 +92,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-12 text-center">
               <p className="small text-secondary mb-0">
-                © {new Date().getFullYear()} iMarket. Todos los derechos
+                © {new Date().getFullYear()} MrIphones. Todos los derechos
                 reservados.
               </p>
             </div>

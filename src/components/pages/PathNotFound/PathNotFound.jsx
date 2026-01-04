@@ -5,8 +5,8 @@ const PathNotFound = () => {
   return (
     <div className="not-found-container">
       <Helmet>
-        <title>Ruta no encontrada | iMarket</title>
-        <meta name="description" content="La página que buscas no existe en iMarket. Regresa al inicio para encontrar los mejores iPhones." />
+        <title>Ruta no encontrada | MrIphones</title>
+        <meta name="description" content="La página que buscas no existe en MrIphones. Regresa al inicio para encontrar los mejores iPhones." />
       </Helmet>
       <div className="container">
         <div className="row justify-content-center">

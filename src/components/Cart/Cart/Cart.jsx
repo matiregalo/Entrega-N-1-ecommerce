@@ -18,8 +18,8 @@ const Cart = () => {
   return (
     <div className="cart-page">
       <Helmet>
-        <title>Carrito | iMarket</title>
-        <meta name="description" content="Revisa los productos en tu carrito de compras. Completa tu compra de iPhones en iMarket con seguridad y garantía." />
+        <title>Carrito | MrIphones</title>
+        <meta name="description" content="Revisa los productos en tu carrito de compras. Completa tu compra de iPhones en MrIphones con seguridad y garantía." />
         <link rel="canonical" href={currentUrl} />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>

@@ -15,7 +15,7 @@ const ItemDetail = ({ product }) => {
   
   const title = product? product.name : ''
   const description = product
-    ? `${product.name} - ${product.description?.substring(0, 120) || 'Compra este iPhone en iMarket. Excelente calidad y precio garantizado.'}... Precio: $${product.price}. Compra con confianza.`
+    ? `${product.name} - ${product.description?.substring(0, 120) || 'Compra este iPhone en MrIphones. Excelente calidad y precio garantizado.'}... Precio: $${product.price}. Compra con confianza.`
     : ''
   
   const categoryName = product?.category === "iphones-sellados" 
@@ -43,7 +43,7 @@ const ItemDetail = ({ product }) => {
         : "https://schema.org/OutOfStock",
       "seller": {
         "@type": "Organization",
-        "name": "iMarket"
+        "name": "MrIphones"
       }
     },
     "brand": {
@@ -91,20 +91,20 @@ const ItemDetail = ({ product }) => {
     <div className="item-detail-container">
       {product && (
         <Helmet>
-          <title>{title} | iMarket</title>
+          <title>{title} | MrIphones</title>
           <meta name="description" content={description} />
           <link rel="canonical" href={currentUrl} />
           
           <meta property="og:type" content="product" />
           <meta property="og:url" content={currentUrl} />
-          <meta property="og:title" content={`${title} | iMarket`} />
+          <meta property="og:title" content={`${title} | MrIphones`} />
           <meta property="og:description" content={description} />
           <meta property="og:image" content={product.image} />
-          <meta property="og:site_name" content="iMarket" />
+          <meta property="og:site_name" content="MrIphones" />
           
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:url" content={currentUrl} />
-          <meta name="twitter:title" content={`${title} | iMarket`} />
+          <meta name="twitter:title" content={`${title} | MrIphones`} />
           <meta name="twitter:description" content={description} />
           <meta name="twitter:image" content={product.image} />
           

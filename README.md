@@ -199,7 +199,7 @@ Este es un **proyecto de e-commerce de venta de iPhones** desarrollado con React
 El proyecto implementa un conjunto completo de optimizaciones SEO siguiendo las mejores prácticas actuales:
 
 #### Meta Tags y Headers:
-- **Títulos dinámicos** por página con formato: `{Título de página} | iMarket`
+- **Títulos dinámicos** por página con formato: `{Título de página} | MrIphones`
 - **Meta descriptions** personalizadas y descriptivas (150-160 caracteres)
 - **Canonical URLs** para evitar problemas de contenido duplicado
 - **Meta robots** configurados apropiadamente:
@@ -211,7 +211,7 @@ El proyecto implementa un conjunto completo de optimizaciones SEO siguiendo las 
   - Nombre, descripción e imagen del producto
   - Información de oferta (precio, moneda, disponibilidad)
   - Marca (Apple) y categoría
-  - Información del vendedor (iMarket)
+  - Información del vendedor (MrIphones)
   
 - **BreadcrumbList Schema**: Implementado en páginas de productos y categorías para mostrar la jerarquía de navegación
 

@@ -54,8 +54,8 @@ const Checkout = () => {
   return (
     <div>
       <Helmet>
-        <title>Checkout | iMarket</title>
-        <meta name="description" content="Completa tu compra de iPhones. Ingresa tus datos de contacto y finaliza tu pedido de forma segura en iMarket." />
+        <title>Checkout | MrIphones</title>
+        <meta name="description" content="Completa tu compra de iPhones. Ingresa tus datos de contacto y finaliza tu pedido de forma segura en MrIphones." />
         <link rel="canonical" href={currentUrl} />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>

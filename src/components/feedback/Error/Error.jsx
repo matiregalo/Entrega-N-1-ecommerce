@@ -14,8 +14,8 @@ const Error = () => {
   return (
     <div className="not-found-container">
       <Helmet>
-        <title>Error | iMarket</title>
-        <meta name="description" content="Ha ocurrido un error en iMarket. Por favor, intenta nuevamente o contacta a soporte si el problema persiste." />
+        <title>Error | MrIphones</title>
+        <meta name="description" content="Ha ocurrido un error en MrIphones. Por favor, intenta nuevamente o contacta a soporte si el problema persiste." />
       </Helmet>
       <div className="container">
         <div className="row justify-content-center">

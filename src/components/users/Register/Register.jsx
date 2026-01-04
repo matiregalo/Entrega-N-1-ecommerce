@@ -146,8 +146,8 @@ const Register = () => {
   return (
     <div>
       <Helmet>
-        <title>Registrar | iMarket</title>
-        <meta name="description" content="Crea tu cuenta en iMarket. Regístrate para comprar iPhones de calidad con garantía. Proceso rápido y seguro." />
+        <title>Registrar | MrIphones</title>
+        <meta name="description" content="Crea tu cuenta en MrIphones. Regístrate para comprar iPhones de calidad con garantía. Proceso rápido y seguro." />
         <link rel="canonical" href={`${window.location.origin}${location.pathname}`} />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>

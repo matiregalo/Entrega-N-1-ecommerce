@@ -15,7 +15,7 @@ const OrderReview = ({ orderId }) => {
   return (
     <div className="order-review-container">
       <Helmet>
-        <title>Resumen de compra | iMarket</title>
+        <title>Resumen de compra | MrIphones</title>
         <meta name="description" content="Tu compra ha sido completada exitosamente. Revisa los detalles de tu pedido y guarda tu número de orden para futuras consultas." />
       </Helmet>
       <div className="order-review-card">

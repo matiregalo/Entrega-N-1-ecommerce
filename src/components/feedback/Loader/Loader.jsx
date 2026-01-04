@@ -5,8 +5,8 @@ const Loader = () => {
   return (
     <>
       <Helmet>
-        <title>Cargando.. | iMarket</title>
-        <meta name="description" content="Cargando productos en iMarket. Encontrando los mejores iPhones para ti." />
+        <title>Cargando.. | MrIphones</title>
+        <meta name="description" content="Cargando productos en MrIphones. Encontrando los mejores iPhones para ti." />
       </Helmet>
   <div className="container my-4">
     <div className="loading-container text-center py-5">
