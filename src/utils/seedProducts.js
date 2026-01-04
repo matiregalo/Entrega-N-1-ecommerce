@@ -108,6 +108,7 @@ const products = [
 const seedProducts = async () => {
   try {
     const productsRef = collection(db, "products");
+    
     const existingProducts = await getDocs(productsRef);
     
     if (existingProducts.empty) {
@@ -116,7 +117,7 @@ const seedProducts = async () => {
           await addDoc(productsRef, dataProduct);
         })
       );
-    } 
+    }
   } catch (error) {
     console.error("❌ Error al subir productos:", error);
   }
