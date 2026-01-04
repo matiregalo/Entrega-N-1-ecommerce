@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import "./PathNotFound.css";
+import "./pathnotfound.css";
 
 const PathNotFound = () => {
   return (

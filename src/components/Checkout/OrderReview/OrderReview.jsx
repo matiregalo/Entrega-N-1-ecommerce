@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 import { Link } from "react-router-dom";
-import "./OrderReview.css";
+import "./orderReview.css";
 import OrderItem from "../OrderItem/OrderItem";
 import { Helmet } from "react-helmet-async";
 
